@@ -4,7 +4,12 @@
 
 //color variables
 $white: #ffffff;
+$black: #000000;
+$shadow: rgba(#000000, 0.25);
 $yellow: #f2ca21;
+
+//ease variables
+$ease: ease-in-out;
 
 //mixins
 @mixin swing-m {

@@ -6,50 +6,70 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
-  <body class="pos-one">
+  <body class="pos-three pos-three">
     <div class="loading" style="display: block; background-color: red; position: absolute; z-index: 999; top: 0px; left: 0px; bottom: 0px; right: 0px; text-align: center; padding-top: 40%; ">Loading...</div>
     <div class="viewport">
       <div class="content-container first">
         <h1 class="main-title">The Water Cycle</h1>
-        <div class="info-box">
+        <div class="main-info-box">
           <p>Lets find out where <br>the rain comes from</p>
         </div>
       </div>
       <div class="content-container second">
-        <div class="info-box">
+        <div class="main-info-box">
           <p>To find out<br>we are going to learn<br>about the water cycle<br>Rain falls to the ground<br>and runs downhill.</p>
         </div>
       </div>
       <div class="content-container third">
-        <div class="info-box">
-          <p>As the water flows downhill<br>some of it soaks into<br>the ground where trees use it to grow.<br>Let's follow the flow of water further down.</p>
+        <div class="main-info-box">
+          <p>As the water flows downhill<br>some of it soaks into<br>the ground where <span class="highlight">trees</span> use it to grow.<br>Let's follow the flow of water further down.</p>
         </div>
+      </div>
+      <div class="secondary-info-box trees-info">
+        <div class="close-btn"><span></span><span></span></div>
+        <p>some info about trees absorbing water</p>
       </div>
       <div class="content-container fourth">
-        <div class="info-box">
-          <p>The water joins rivers and streams<br>which flow into large bodies of water<br> such as lakes or the ocean.</p>
+        <div class="main-info-box">
+          <p>The water joins rivers and streams<br>which flow into large bodies of water<br> such as lakes or the <span class="highlight">ocean</span>.</p>
         </div>
       </div>
+      <div class="secondary-info-box ocean-info">
+        <div class="close-btn"><span></span><span></span></div>
+        <p>some info about the ocean being salty</p>
+      </div>
       <div class="content-container fifth">
-        <div class="info-box">
+        <div class="main-info-box">
           <p>When the shines down<br>it warms everything up.<br>Which causes the water to evaporate<br>and rise up into the sky.</p>
         </div>
       </div>
+      <div class="secondary-info-box evaporation-info">
+        <div class="close-btn"><span></span><span></span></div>
+        <p>some info about how water turns to vapor</p>
+      </div>
       <div class="content-container sixth">
-        <div class="info-box">
+        <div class="main-info-box">
           <p>As the water vapor rises<br>it cools down and groups.<br>together to form clouds.</p>
         </div>
       </div>
+      <div class="secondary-info-box clouds-info">
+        <div class="close-btn"><span></span><span></span></div>
+        <p>some info about how water forms clouds</p>
+      </div>
       <div class="content-container seventh">
-        <div class="info-box">
+        <div class="main-info-box">
           <p>Wind blows the clouds<br>to other parts of the world.<br>Where the water vapor condenses back into water droplets<br>and fall down as rain to start the water cycle again.</p>
         </div>
       </div>
       <a href="#" class="btn next" data-current="1">
         <svg id="svgbtn" viewBox="0 0 300 100" height="100px"><path class="svgBtn" d="M280,80Q150,80,20,80Q20,50,20,20Q150,20,280,20Q280,50,280,80"/></svg>
-        <span class="">Next</span>
+        <span>Next</span>
       </a>
       <div class="scene" data-current="1">
+        <div class="trees-trigger secondary-info-trigger">Click to learn about trees</div>
+        <div class="ocean-trigger secondary-info-trigger">Click to learn about the ocean</div>
+        <div class="vapor-trigger secondary-info-trigger">Click to learn about evaporation</div>
+        <div class="clouds-trigger secondary-info-trigger">Click to learn about clouds</div>
       </div>
     </div>
     <script type="text/javascript" src="script.js"></script>

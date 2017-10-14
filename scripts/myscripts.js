@@ -32,7 +32,26 @@ $(".loading").css("display","none");
       body.addClass("pos-one");
       body.removeClass("pos-seven");
     }
+  });
 
+  //trigger the span elements to open the info slider and move position
+  $(".secondary-info-trigger").on("click", function() {
+    var body = $("body");
+    if ( body.hasClass("pos-three")) {
+      body.addClass("pos-three-a");
+    } else if ( body.hasClass("pos-four")) {
+      body.addClass("pos-four-a");
+    } else if ( body.hasClass("pos-five")) {
+      body.addClass("pos-five-a");
+    } else if ( body.hasClass("pos-six")) {
+      body.addClass("pos-six-a");
+    }
+  });
+
+  //remove classes when close button clicked
+  $(".close-btn").on("click", function() {
+    var body = $("body");
+    body.removeClass("pos-three-a pos-four-a pos-five-a pos-six-a");
   });
 
 }); // closes the document ready function
