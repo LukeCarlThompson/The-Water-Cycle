@@ -3,6 +3,8 @@
 // Author: Luke Carl Thompson
 
 $(document).ready(function(){
+// hide the loading spinner
+$(".loading").css("display","none");
 
 //trigger each animation to move to the next position
   $(".next").on("click", function() {
