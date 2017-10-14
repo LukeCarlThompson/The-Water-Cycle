@@ -32,34 +32,6 @@ html {
   margin-left: -2500px;     /* Shift over half the width */
   margin-top:  -1000px;
   transform: translateX(40%) translateY(11%) scale(1.6);
-  .pos-one & {
-    transform: translateX(40%) translateY(11%) scale(1.6);
-    transition: transform 1s ease-in-out;
-  }
-  .pos-two & {
-    transform: translateX(18%) translateY(11%) scale(.8);
-    transition: transform 1s ease-in-out;
-  }
-  .pos-three & {
-    transform: translateX(2%) translateY(-2%) scale(.8);
-    transition: transform 1.8s ease-in-out;
-  }
-  .pos-four & {
-    transform: translateX(-12%) translateY(-9%) scale(.9);
-    transition: transform 1.7s ease-in-out;
-  }
-  .pos-five & {
-    transform: translateX(-19%) translateY(-8%) scale(1);
-    transition: transform 1s ease-in-out;
-  }
-  .pos-six & {
-    transform: translateX(-15%) translateY(9%) scale(.8);
-    transition: transform 1.5s ease-in-out;
-  }
-  .pos-seven & {
-    transform: translateX(18%) translateY(9%) scale(.8);
-    transition: transform 3s ease-in-out;
-  }
 }
 
 // style and positon the buttons
@@ -100,6 +72,14 @@ html {
 .content-container {
   border: 2px solid red;
   transition: transform 1s ease-in-out;
+  position: absolute;
+  width: 100%;
+  &.first {
+
+  }
+  &.second {
+    margin-top: 19%;
+  }
   .pos-two & {
     @include swing-l
   }
@@ -122,20 +102,54 @@ html {
   }
 }
 
-//styles to animate content in and out of screen
-.swing-l {
-  transform: rotate(-90deg);
-  transform-origin: 50% 1000px;
-}
-.swing-r {
-  transform: rotate(90deg);
-  transform-origin: 50% 1000px;
-}
-
 .content-container {
   border: 2px solid red;
   transition: transform 1s ease-in-out;
   .pos-two & {
     @include swing-l
+  }
+}
+
+// all position classes to control everything else based on which position the main scene is in.
+.pos-one {
+  .scene {
+    transform: translateX(40%) translateY(11%) scale(1.6);
+    transition: transform 1s ease-in-out;
+  }
+}
+.pos-two {
+  .scene {
+    transform: translateX(18%) translateY(11%) scale(.8);
+    transition: transform 1s ease-in-out;
+  }
+}
+.pos-three {
+  .scene {
+    transform: translateX(2%) translateY(-2%) scale(.8);
+    transition: transform 1.8s ease-in-out;
+  }
+}
+.pos-four {
+  .scene {
+    transform: translateX(-12%) translateY(-9%) scale(.9);
+    transition: transform 1.7s ease-in-out;
+  }
+}
+.pos-five {
+  .scene {
+    transform: translateX(-19%) translateY(-8%) scale(1);
+    transition: transform 1s ease-in-out;
+  }
+}
+.pos-six {
+  .scene {
+    transform: translateX(-15%) translateY(9%) scale(.8);
+    transition: transform 1.5s ease-in-out;
+  }
+}
+.pos-seven {
+  .scene {
+    transform: translateX(18%) translateY(9%) scale(.8);
+    transition: transform 3s ease-in-out;
   }
 }
