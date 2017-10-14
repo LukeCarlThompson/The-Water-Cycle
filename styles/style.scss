@@ -32,31 +32,31 @@ html {
   margin-left: -2500px;     /* Shift over half the width */
   margin-top:  -1000px;
   transform: translateX(40%) translateY(11%) scale(1.6);
-  &.pos-one {
+  .pos-one & {
     transform: translateX(40%) translateY(11%) scale(1.6);
     transition: transform 1s ease-in-out;
   }
-  &.pos-two {
+  .pos-two & {
     transform: translateX(18%) translateY(11%) scale(.8);
     transition: transform 1s ease-in-out;
   }
-  &.pos-three {
+  .pos-three & {
     transform: translateX(2%) translateY(-2%) scale(.8);
     transition: transform 1.8s ease-in-out;
   }
-  &.pos-four {
+  .pos-four & {
     transform: translateX(-12%) translateY(-9%) scale(.9);
     transition: transform 1.7s ease-in-out;
   }
-  &.pos-five {
+  .pos-five & {
     transform: translateX(-19%) translateY(-8%) scale(1);
     transition: transform 1s ease-in-out;
   }
-  &.pos-six {
+  .pos-six & {
     transform: translateX(-15%) translateY(9%) scale(.8);
     transition: transform 1.5s ease-in-out;
   }
-  &.pos-seven {
+  .pos-seven & {
     transform: translateX(18%) translateY(9%) scale(.8);
     transition: transform 3s ease-in-out;
   }

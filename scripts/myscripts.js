@@ -4,45 +4,31 @@
 
 $(document).ready(function(){
 
-// //trigger each animation to move to the next position
-//   $(".next").on("click", function() {
-//     var currentScene = this.getAttribute("data-current");
-//
-//     if ( currentScene == 1 ) {
-//       this.setAttribute("data-current", 2);
-//     } else if ( currentScene == 2 ) {
-//       this.setAttribute("data-current", 3);
-//     } else if ( currentScene == 3 ) {
-//       this.setAttribute("data-current", 1);
-//     }
-//
-//   });
-
 //trigger each animation to move to the next position
   $(".next").on("click", function() {
-    var scene = $(".scene");
+    var body = $("body");
 
-    if ( scene.hasClass("pos-one") ) {
-      scene.addClass("pos-two");
-      scene.removeClass("pos-one");
-    } else if ( scene.hasClass("pos-two") ) {
-      scene.addClass("pos-three");
-      scene.removeClass("pos-two");
-    } else if ( scene.hasClass("pos-three") ) {
-      scene.addClass("pos-four");
-      scene.removeClass("pos-three");
-    } else if ( scene.hasClass("pos-four") ) {
-      scene.addClass("pos-five");
-      scene.removeClass("pos-four");
-    } else if ( scene.hasClass("pos-five") ) {
-      scene.addClass("pos-six");
-      scene.removeClass("pos-five");
-    } else if ( scene.hasClass("pos-six") ) {
-      scene.addClass("pos-seven");
-      scene.removeClass("pos-six");
-    } else if ( scene.hasClass("pos-seven") ) {
-      scene.addClass("pos-one");
-      scene.removeClass("pos-seven");
+    if ( body.hasClass("pos-one") ) {
+      body.addClass("pos-two");
+      body.removeClass("pos-one");
+    } else if ( body.hasClass("pos-two") ) {
+      body.addClass("pos-three");
+      body.removeClass("pos-two");
+    } else if ( body.hasClass("pos-three") ) {
+      body.addClass("pos-four");
+      body.removeClass("pos-three");
+    } else if ( body.hasClass("pos-four") ) {
+      body.addClass("pos-five");
+      body.removeClass("pos-four");
+    } else if ( body.hasClass("pos-five") ) {
+      body.addClass("pos-six");
+      body.removeClass("pos-five");
+    } else if ( body.hasClass("pos-six") ) {
+      body.addClass("pos-seven");
+      body.removeClass("pos-six");
+    } else if ( body.hasClass("pos-seven") ) {
+      body.addClass("pos-one");
+      body.removeClass("pos-seven");
     }
 
   });
