@@ -172,23 +172,6 @@ html {
   }
 }
 
-// style for the highlighted word
-.highlight {
-  //background-color: $yellow;
-  position: relative;
-  &:after {
-    content: "";
-    display: inline-block;
-    background-color: $yellow;
-    position: absolute;
-    left: -5px;
-    top: 10px;
-    height: 8px;
-    width: 40px;
-    z-index: -1;
-  }
-}
-
 .secondary-info-trigger {
   transition: transform .3s $ease;
   transform-origin: left;
