@@ -1,0 +1,141 @@
+// Document information
+// main style sheet for the water cycle interactve learning site
+// Author: Luke Carl Thompson
+
+@import "normalize";
+@import "variables-mixins";
+@import "typography";
+
+html {
+  //overflow: hidden;
+}
+
+//create class to server as the viewport.
+.viewport {
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  position: absolute;
+  overflow: hidden;
+  text-align: center;
+}
+
+//create class to contain the whole scene
+.scene {
+  height: 2000px;
+  width: 5000px;
+  background: url(images/scene-wide.svg);
+  position: absolute;
+  z-index: -10;
+  left: 50%;
+  top: 50%;
+  margin-left: -2500px;     /* Shift over half the width */
+  margin-top:  -1000px;
+  transform: translateX(40%) translateY(11%) scale(1.6);
+  &.pos-one {
+    transform: translateX(40%) translateY(11%) scale(1.6);
+    transition: transform 1s ease-in-out;
+  }
+  &.pos-two {
+    transform: translateX(18%) translateY(11%) scale(.8);
+    transition: transform 1s ease-in-out;
+  }
+  &.pos-three {
+    transform: translateX(2%) translateY(-2%) scale(.8);
+    transition: transform 1.8s ease-in-out;
+  }
+  &.pos-four {
+    transform: translateX(-12%) translateY(-9%) scale(.9);
+    transition: transform 1.7s ease-in-out;
+  }
+  &.pos-five {
+    transform: translateX(-19%) translateY(-8%) scale(1);
+    transition: transform 1s ease-in-out;
+  }
+  &.pos-six {
+    transform: translateX(-15%) translateY(9%) scale(.8);
+    transition: transform 1.5s ease-in-out;
+  }
+  &.pos-seven {
+    transform: translateX(18%) translateY(9%) scale(.8);
+    transition: transform 3s ease-in-out;
+  }
+}
+
+// style and positon the buttons
+.btn {
+  padding: 10px 20px;
+  position: absolute;
+  text-align: center;
+  top: 80%;
+  left: 50%;
+  &.next {
+
+  }
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    fill: #5FA7CE;
+    filter: drop-shadow(6px 6px 6px rgba(0,0,0,0.5));
+  }
+  span {
+    z-index: 2;
+    position: relative;
+    line-height: 80px;
+    vertical-align: middle;
+    width: 260px;
+    display: inline-block;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: white;
+    //text-shadow: 1px 2px 1px black;
+  }
+}
+
+// styles for the container that holds the on screen content
+.content-container {
+  border: 2px solid red;
+  transition: transform 1s ease-in-out;
+  .pos-two & {
+    @include swing-l
+  }
+}
+
+// styles for the main title
+.main-title {
+  color: $yellow;
+  text-shadow: 1px 1px 0px black;
+  margin-top: 15%;
+}
+
+.info-box {
+  max-width: 600px;
+  border: 2px solid green;
+  display: inline-block;
+  text-align: left;
+  p {
+    line-height: 2em;
+  }
+}
+
+//styles to animate content in and out of screen
+.swing-l {
+  transform: rotate(-90deg);
+  transform-origin: 50% 1000px;
+}
+.swing-r {
+  transform: rotate(90deg);
+  transform-origin: 50% 1000px;
+}
+
+.content-container {
+  border: 2px solid red;
+  transition: transform 1s ease-in-out;
+  .pos-two & {
+    @include swing-l
+  }
+}

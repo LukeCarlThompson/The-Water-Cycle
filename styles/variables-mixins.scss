@@ -1,0 +1,18 @@
+// Document information
+// Variables style sheet for the water cycle interactve learning site
+// Author: Luke Carl Thompson
+
+//color variables
+$white: #ffffff;
+$yellow: #f2ca21;
+
+//mixins
+@mixin swing-l {
+  transform: rotate(-90deg);
+  transform-origin: 50% 1000px;
+}
+
+@mixin swing-r {
+  transform: rotate(90deg);
+  transform-origin: 50% 1000px;
+}
