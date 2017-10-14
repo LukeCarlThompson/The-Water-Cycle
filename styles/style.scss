@@ -86,6 +86,9 @@ html {
   }
   &.second {
   }
+  &.quiz {
+    margin-top: 10%;
+  }
 }
 
 // styles for the main title
@@ -95,6 +98,11 @@ html {
   margin-top: 15%;
 }
 
+.quiz-title {
+  color: $yellow;
+  text-shadow: 1px 1px 0px black;
+}
+
 .main-info-box {
   max-width: 600px;
   //border: 2px solid green;
@@ -102,6 +110,13 @@ html {
   text-align: left;
   p {
     line-height: 2em;
+  }
+  .quiz & {
+    background-color: $yellow;
+    border-radius: 4px;
+    padding: 10px;
+    height: 250px;
+    width: 300px;
   }
 }
 
@@ -213,7 +228,7 @@ html {
     transform: translateX(40%) translateY(11%) scale(1.6);
     transition: transform 1s $ease;
   }
-  .seventh {
+  .quiz {
     @include swing-l
   }
   .first {
@@ -349,5 +364,19 @@ html {
   .seventh {
     @include swing-m
     transition: transform 3s $ease;
+  }
+}
+.pos-quiz {
+  .scene {
+    transform: translateX(18%) translateY(9%) scale(.8);
+    transition: transform 3s $ease;
+  }
+  .seventh {
+    @include swing-l
+    transition: transform .5s $ease;
+  }
+  .quiz {
+    @include swing-m
+    transition: transform 1s $ease;
   }
 }

@@ -29,9 +29,13 @@ $(".loading").css("display","none");
       body.addClass("pos-seven");
       body.removeClass("pos-six");
     } else if ( body.hasClass("pos-seven") ) {
-      body.addClass("pos-one");
+      body.addClass("pos-quiz");
       body.removeClass("pos-seven");
+    } else if ( body.hasClass("pos-quiz") ) {
+      body.addClass("pos-one");
+      body.removeClass("pos-quiz");
     }
+
   });
 
   //trigger the span elements to open the info slider and move position
