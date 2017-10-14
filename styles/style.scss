@@ -80,9 +80,6 @@ html {
   &.second {
     margin-top: 19%;
   }
-  .pos-two & {
-    @include swing-l
-  }
 }
 
 // styles for the main title
@@ -105,9 +102,8 @@ html {
 .content-container {
   border: 2px solid red;
   transition: transform 1s ease-in-out;
-  .pos-two & {
-    @include swing-l
-  }
+  transform-origin: 50% 1000px;
+  @include swing-r
 }
 
 // all position classes to control everything else based on which position the main scene is in.
@@ -116,17 +112,29 @@ html {
     transform: translateX(40%) translateY(11%) scale(1.6);
     transition: transform 1s ease-in-out;
   }
+  .first {
+    @include swing-m
+  }
 }
 .pos-two {
   .scene {
     transform: translateX(18%) translateY(11%) scale(.8);
     transition: transform 1s ease-in-out;
   }
+  .first {
+    @include swing-l
+  }
+  .second {
+    @include swing-m
+  }
 }
 .pos-three {
   .scene {
     transform: translateX(2%) translateY(-2%) scale(.8);
     transition: transform 1.8s ease-in-out;
+  }
+  .second {
+    @include swing-l
   }
 }
 .pos-four {

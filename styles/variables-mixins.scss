@@ -7,12 +7,17 @@ $white: #ffffff;
 $yellow: #f2ca21;
 
 //mixins
+@mixin swing-m {
+  transform: rotate(0);
+  visibility: visible;
+}
+
 @mixin swing-l {
   transform: rotate(-90deg);
-  transform-origin: 50% 1000px;
+  visibility: visible;
 }
 
 @mixin swing-r {
   transform: rotate(90deg);
-  transform-origin: 50% 1000px;
+   visibility: hidden;
 }
