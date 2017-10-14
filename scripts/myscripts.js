@@ -38,7 +38,7 @@ $(".loading").css("display","none");
 
   });
 
-  //trigger the span elements to open the info slider and move position
+  //trigger the secondary info triggers to open the info slider and move position
   $(".secondary-info-trigger").on("click", function() {
     var body = $("body");
     if ( body.hasClass("pos-three")) {
