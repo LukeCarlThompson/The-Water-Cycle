@@ -58,4 +58,54 @@ $(".loading").css("display","none");
     body.removeClass("pos-three-a pos-four-a pos-five-a pos-six-a");
   });
 
+  //code to morph the svg button on hover
+  var createBouncyButtons = (function() {
+  function createButton(el) {
+    var pathEl = el.querySelector('path');
+    var spanEl = el.querySelector('span');
+    function hover() {
+      anime.remove([pathEl, spanEl]);
+      anime({
+        targets: pathEl,
+        d: 'M290,90Q150,100,10,90Q0,50,10,10Q150,0,290,10Q300,50,290,90',
+        elasticity: 700,
+        offset: 0
+      });
+      anime({
+        targets: spanEl,
+        scale: 1.4,
+        duration: 800,
+        offset: 0
+      });
+    }
+    function down() {
+      anime.remove([pathEl, spanEl]);
+      anime({
+        targets: pathEl,
+        d: 'M280,80Q150,80,20,80Q20,50,20,20Q150,20,280,20Q280,50,280,80',
+        elasticity: 700,
+        offset: 0
+      });
+      anime({
+        targets: spanEl,
+        scale: 1,
+        duration: 800,
+        offset: 0
+      });
+    }
+    el.onmouseenter = hover;
+    el.onmousedown = down;
+    el.onmouseleave = down;
+  }
+
+  var buttonEls = document.querySelectorAll('.btn');
+
+  for (var i = 0; i < buttonEls.length; i++) {
+    var el = buttonEls[i];
+    createButton(el);
+  }
+
+})();
+
+
 }); // closes the document ready function
