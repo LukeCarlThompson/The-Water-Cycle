@@ -174,13 +174,18 @@ html {
 
 .secondary-info-trigger {
   transition: transform .3s $bounce;
-  //transform-origin: left;
   transform: scale(0);
+  //background-color: red;
+  .info-icon {
+    background: url(images/information-icon-hollow.svg);
+    margin: 0 auto;
+    height: 50px;
+    width: 50px;
+  }
 }
 
 .trees-trigger {
   position: absolute;
-  background-color: red;
   top: 55%;
   left: 48%;
   transform: scale(0);
@@ -188,21 +193,18 @@ html {
 
 .ocean-trigger {
   position: absolute;
-  background-color: red;
   top: 72%;
   left: 65%;
 }
 
 .vapor-trigger {
   position: absolute;
-  background-color: green;
   top: 60%;
   left: 69%;
 }
 
 .clouds-trigger {
   position: absolute;
-  background-color: green;
   top: 26%;
   left: 69%;
 }
