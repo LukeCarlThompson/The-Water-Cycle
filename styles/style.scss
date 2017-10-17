@@ -45,9 +45,9 @@ html {
   text-align: center;
   top: 80%;
   left: 50%;
+  z-index: 100;
   &.next {
     transition: transform .3s $bounce;
-    //transform-origin: left;
   }
   svg {
     position: absolute;
@@ -77,9 +77,9 @@ html {
 .content-container {
   transition: transform 1s $ease;
   position: absolute;
-  transform-origin: 50% 1000px;
-  pointer-events: none;
-  @include swing-r
+  //transform-origin: 50% 1000px;
+  //pointer-events: none;
+  @include hide
   width: 100%;
   margin-top: 19%;
   &.first {
@@ -259,10 +259,10 @@ html {
     transition: transform 1s $ease;
   }
   .quiz {
-    @include swing-l
+    @include hide
   }
   .first {
-    @include swing-m
+    @include show
   }
 }
 .pos-two {
@@ -271,10 +271,10 @@ html {
     transition: transform 1s $ease;
   }
   .first {
-    @include swing-l
+    @include hide
   }
   .second {
-    @include swing-m
+    @include show
     transition-delay: .2s;
   }
 }
@@ -284,10 +284,10 @@ html {
     transition: transform 1.8s $ease;
   }
   .second {
-    @include swing-l
+    @include hide
   }
   .third {
-    @include swing-m
+    @include show
     transition-delay: 1s;
   }
   .trees-trigger {
@@ -301,7 +301,7 @@ html {
     transition: transform .3s $ease;
   }
   .third {
-    @include swing-l
+    @include hide
     transition-delay: 0;
   }
   .trees-info {
@@ -321,10 +321,10 @@ html {
     transition: transform 1.7s $ease;
   }
   .third {
-    @include swing-l
+    @include hide
   }
   .fourth {
-    @include swing-m
+    @include show
     transition-delay: .9s;
   }
   .ocean-trigger {
@@ -338,7 +338,7 @@ html {
     transition: transform .3s $ease;
   }
   .fourth {
-    @include swing-l
+    @include hide
     transition-delay: 0;
   }
   .ocean-info {
@@ -358,10 +358,10 @@ html {
     transition: transform 1s $ease;
   }
   .fourth{
-    @include swing-l
+    @include hide
   }
   .fifth {
-    @include swing-m
+    @include show
     transition-delay: .3s;
   }
   .vapor-trigger {
@@ -375,7 +375,7 @@ html {
     transition: transform .3s $ease;
   }
   .fifth {
-    @include swing-l
+    @include hide
     transition-delay: 0;
   }
   .evaporation-info {
@@ -395,10 +395,10 @@ html {
     transition: transform 1.5s $ease;
   }
   .fifth{
-    @include swing-l
+    @include hide
   }
   .sixth {
-    @include swing-m
+    @include show
     transition-delay: .5s;
   }
   .clouds-trigger {
@@ -412,7 +412,7 @@ html {
     transition: transform .5s $ease;
   }
   .sixth {
-    @include swing-l
+    @include hide
     transition-delay: 0;
   }
   .clouds-info {
@@ -432,10 +432,10 @@ html {
     transition: transform 3s $ease;
   }
   .sixth {
-    @include swing-l
+    @include hide
   }
   .seventh {
-    @include swing-m
+    @include show
     transition-delay: 2s;
   }
 }
@@ -445,12 +445,12 @@ html {
     transition: transform 3s $ease;
   }
   .seventh {
-    @include swing-l
+    @include hide
     transition: transform .5s $ease;
     transition-delay: 0s;
   }
   .quiz {
-    @include swing-m
+    @include show
     transition-delay: .5s;
   }
 }
