@@ -46,7 +46,7 @@ html {
   top: 80%;
   left: 50%;
   &.next {
-    transition: transform .3s $ease;
+    transition: transform .3s $bounce;
     transform-origin: left;
   }
   svg {
@@ -173,8 +173,9 @@ html {
 }
 
 .secondary-info-trigger {
-  transition: transform .3s $ease;
-  transform-origin: left;
+  transition: transform .3s $bounce;
+  //transform-origin: left;
+  transform: scale(0);
 }
 
 .trees-trigger {
@@ -182,6 +183,7 @@ html {
   background-color: red;
   top: 55%;
   left: 48%;
+  transform: scale(0);
 }
 
 .ocean-trigger {
@@ -228,6 +230,7 @@ html {
   }
   .second {
     @include swing-m
+    transition-delay: .2s;
   }
 }
 .pos-three {
@@ -240,7 +243,11 @@ html {
   }
   .third {
     @include swing-m
-    transition: transform 1.8s $ease;
+    transition-delay: 1s;
+  }
+  .trees-trigger {
+    transform: scale(1);
+    transition-delay: 2.3s;
   }
 }
 .pos-three-a {
@@ -254,6 +261,10 @@ html {
   .next {
     transform: scale(0);
   }
+  .trees-trigger {
+    transform: scale(0);
+    transition-delay: 0;
+  }
 }
 .pos-four {
   .scene {
@@ -265,7 +276,11 @@ html {
   }
   .fourth {
     @include swing-m
-    transition: transform 1.7s $ease;
+    transition-delay: .9s;
+  }
+  .ocean-trigger {
+    transform: scale(1);
+    transition-delay: 2.2s;
   }
 }
 .pos-four-a {
@@ -279,6 +294,10 @@ html {
   .next {
     transform: scale(0);
   }
+  .ocean-trigger {
+    transform: scale(0);
+    transition-delay: 0;
+  }
 }
 .pos-five {
   .scene {
@@ -290,7 +309,11 @@ html {
   }
   .fifth {
     @include swing-m
-    transition: transform 1s $ease;
+    transition-delay: .3s;
+  }
+  .vapor-trigger {
+    transform: scale(1);
+    transition-delay: 1.5s;
   }
 }
 .pos-five-a {
@@ -304,8 +327,9 @@ html {
   .next {
     transform: scale(0);
   }
-  .secondary-info-trigger {
+  .vapor-trigger {
     transform: scale(0);
+    transition-delay: 0;
   }
 }
 .pos-six {
@@ -318,7 +342,11 @@ html {
   }
   .sixth {
     @include swing-m
-    transition: transform 1.5s $ease;
+    transition-delay: .5s;
+  }
+  .clouds-trigger {
+    transform: scale(1);
+    transition-delay: 2s;
   }
 }
 .pos-six-a {
@@ -332,8 +360,9 @@ html {
   .next {
     transform: scale(0);
   }
-  .secondary-info-trigger {
+  .clouds-trigger {
     transform: scale(0);
+    transition-delay: 0;
   }
 }
 .pos-seven {
@@ -346,7 +375,7 @@ html {
   }
   .seventh {
     @include swing-m
-    transition: transform 3s $ease;
+    transition-delay: 2s;
   }
 }
 .pos-quiz {
@@ -360,6 +389,6 @@ html {
   }
   .quiz {
     @include swing-m
-    transition: transform 1s $ease;
+    transition-delay: .5s;
   }
 }

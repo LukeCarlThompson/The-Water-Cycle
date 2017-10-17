@@ -10,6 +10,7 @@ $yellow: #f2ca21;
 
 //ease variables
 $ease: ease-in-out;
+$bounce: cubic-bezier(0.92, 0.37, 0.89, 1.33);
 
 //mixins
 @mixin swing-m {
