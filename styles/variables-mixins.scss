@@ -15,17 +15,20 @@ $bounce: cubic-bezier(0.92, 0.37, 0.89, 1.33);
 //mixins
 //for main text content to slide in and out
 @mixin swing-m {
-  transform: rotate(0);
+  //transform: rotate(0);
+  transform: translateX(0);
   visibility: visible;
 }
 
 @mixin swing-l {
-  transform: rotate(-90deg);
+  //transform: rotate(-90deg);
+  transform: translateX(-100%);
   visibility: visible;
 }
 
 @mixin swing-r {
-  transform: rotate(90deg);
+  //transform: rotate(90deg);
+  transform: translateX(100%);
    visibility: hidden;
 }
 

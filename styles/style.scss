@@ -47,7 +47,7 @@ html {
   left: 50%;
   &.next {
     transition: transform .3s $bounce;
-    transform-origin: left;
+    //transform-origin: left;
   }
   svg {
     position: absolute;
@@ -300,6 +300,10 @@ html {
     transform: translateX(-2%) translateY(-4%) scale(1.1);
     transition: transform .3s $ease;
   }
+  .third {
+    @include swing-l
+    transition-delay: 0;
+  }
   .trees-info {
     transform: translateX(-300px);
   }
@@ -332,6 +336,10 @@ html {
   .scene {
     transform: translateX(-28%) translateY(-28%) scale(1.4);
     transition: transform .3s $ease;
+  }
+  .fourth {
+    @include swing-l
+    transition-delay: 0;
   }
   .ocean-info {
     transform: translateX(-300px);
@@ -366,6 +374,10 @@ html {
     transform: translateX(-35%) translateY(-8%) scale(1.5);
     transition: transform .3s $ease;
   }
+  .fifth {
+    @include swing-l
+    transition-delay: 0;
+  }
   .evaporation-info {
     transform: translateX(-300px);
   }
@@ -399,6 +411,10 @@ html {
     transform: translateX(-25%) translateY(30%) scale(1.4);
     transition: transform .5s $ease;
   }
+  .sixth {
+    @include swing-l
+    transition-delay: 0;
+  }
   .clouds-info {
     transform: translateX(-300px);
   }
@@ -431,6 +447,7 @@ html {
   .seventh {
     @include swing-l
     transition: transform .5s $ease;
+    transition-delay: 0s;
   }
   .quiz {
     @include swing-m
