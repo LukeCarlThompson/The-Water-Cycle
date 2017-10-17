@@ -78,6 +78,7 @@ html {
   transition: transform 1s $ease;
   position: absolute;
   transform-origin: 50% 1000px;
+  pointer-events: none;
   @include swing-r
   width: 100%;
   margin-top: 19%;
@@ -165,7 +166,7 @@ html {
     }
   }
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.3);
     span {
       box-shadow: 0px 5px 10px $shadow;
     }
@@ -175,19 +176,61 @@ html {
 .secondary-info-trigger {
   transition: transform .3s $bounce;
   transform: scale(0);
-  //background-color: red;
+  p {
+    transform: scale(0);
+    transition: transform .3s $bounce;
+  }
+  &:hover p {
+    transform: scale(1);
+  }
   .info-icon {
-    background: url(images/information-icon-hollow.svg);
-    margin: 0 auto;
+    position: relative;
+    margin: 0 10px 0 0;
+    display: inline-block;
+    vertical-align: middle;
+    fill: $yellow;
     height: 50px;
     width: 50px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px $shadow;
+    transition: transform.3s, box-shadow .3s $bounce;
+    &::after {
+      content: "";
+      position: absolute;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      animation: pulse 2s $bounce;
+      animation-iteration-count: infinite;
+      top: 0;
+      left: 0;
+      border: 3px solid $yellow;
+    }
+  }
+  &:hover {
+    p {
+      transform: scale(1);
+    }
+    .info-icon {
+      @include hover
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5, 1.5);
+    opacity: 0;
   }
 }
 
 .trees-trigger {
   position: absolute;
-  top: 55%;
-  left: 48%;
+  top: 50%;
+  left: 49%;
   transform: scale(0);
 }
 
