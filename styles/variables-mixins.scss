@@ -13,25 +13,17 @@ $ease: ease-in-out;
 $bounce: cubic-bezier(0.92, 0.37, 0.89, 1.33);
 
 //mixins
-//for main text content to slide in and out
+//for main text content to pop in and out
 @mixin show {
-  //transform: rotate(0);
-  // transform: translateX(0);
   transform: scale(1);
+  transition: transform .3s $bounce;
   visibility: visible;
+  pointer-events: all;
 }
 
-// @mixin swing-l {
-//   //transform: rotate(-90deg);
-//   // transform: translateX(-100%);
-//   transform: scale(0);
-//   visibility: visible;
-// }
-
 @mixin hide {
-  //transform: rotate(90deg);
-  // transform: translateX(100%);
   transform: scale(0);
+  transition: transform .2s ease-in;
   pointer-events: none;
 }
 
