@@ -176,7 +176,7 @@ html {
 }
 
 .secondary-info-trigger {
-  transition: transform .3s $bounce;
+  // transition: transform .3s $bounce;
   transform: scale(0);
   p {
     transform: scale(0);
@@ -309,8 +309,8 @@ html {
     }
   }
   .trees-trigger {
-    @include show;
-    animation-delay: 1.9s;
+    @include show-02;
+    animation-delay: 2.4s;
   }
   &.pos-three-a {
     .scene {
@@ -356,9 +356,13 @@ html {
       animation-delay: 1.6s;
     }
   }
+  .trees-trigger {
+      @include hide;
+      animation-delay: .2s;
+    }
   .ocean-trigger {
-    @include show;
-    animation-delay: 1.5s;
+    @include show-02;
+    animation-delay: 2s;
   }
   &.pos-four-a {
     .scene {
@@ -404,9 +408,13 @@ html {
       animation-delay: 1.2s;
     }
   }
+  .ocean-trigger {
+      @include hide;
+      animation-delay: .2s;
+    }
   .vapor-trigger {
-    @include show;
-    animation-delay: 1.1s;
+    @include show-02;
+    animation-delay: 1.6s;
   }
   &.pos-five-a {
     .scene {
@@ -451,9 +459,13 @@ html {
       animation-delay: 1.4s;
     }
   }
+  .vapor-trigger {
+      @include hide;
+      animation-delay: .2s;
+    }
   .clouds-trigger {
-    @include show;
-    animation-delay: 1.2s;
+    @include show-02;
+    animation-delay: 1.8s;
   }
   &.pos-six-a {
     .scene {
@@ -491,6 +503,10 @@ html {
       animation-delay: .2s;
     }
   }
+  .clouds-trigger {
+      @include hide;
+      animation-delay: .2s;
+    }
   .seventh {
     @include show;
     animation-delay: 1.7s;
