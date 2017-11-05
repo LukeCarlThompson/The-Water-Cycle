@@ -67,13 +67,21 @@ html {
 // style and positon the buttons
 .btn {
   padding: 10px 20px;
-  position: absolute;
+  z-index: 100;
+  color: $white;
+  display: inline-block;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 18px;
+  text-transform: uppercase;
+  // @include hide;
+  &.next {
+    position: absolute;
   text-align: center;
   top: 80%;
   left: 50%;
-  z-index: 100;
-  @include hide;
-  &.next {
+    @include hide;
   }
   svg {
     position: absolute;
@@ -94,8 +102,20 @@ html {
     letter-spacing: 2px;
     font-size: 18px;
     text-transform: uppercase;
-    color: white;
+    color: $white;
     //text-shadow: 1px 2px 1px black;
+  }
+}
+
+.previous {
+  left: 100px;
+  position: absolute;
+  bottom: 50px;
+  transition: bottom .3s $bounce, text-shadow .3s ease, transform .3s $bounce;
+  text-shadow: 0px 0px 0px $shadow;
+  &:hover {
+    transform: scale(1.1);
+    text-shadow: 2px 2px 10px $shadow;
   }
 }
 
@@ -118,6 +138,8 @@ html {
   }
   &.quiz {
     margin-top: 10%;
+    top: 0%;
+    left: 50%;
   }
 }
 
@@ -295,6 +317,9 @@ html {
     @include show;
     animation-delay: 1s;
   }
+  .previous {
+    transform: scale(0);
+  }
 }
 .pos-two {
   .scene {
@@ -317,6 +342,13 @@ html {
   }
   .progress-indicate .current {
     transform: translateX(45px);
+  }
+  .previous {
+    transform: scale(1);
+      &:hover {
+      transform: scale(1.1);
+      text-shadow: 2px 2px 10px $shadow;
+    }
   }
 }
 .pos-three {

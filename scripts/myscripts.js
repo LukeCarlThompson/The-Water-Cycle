@@ -6,38 +6,6 @@ $(document).ready(function(){
 // hide the loading spinner
 $(".loading").css("display","none");
 
-//trigger each animation to move to the next position
-  $(".next").on("click", function() {
-    var body = $("body");
-
-    if ( body.hasClass("pos-one") ) {
-      body.addClass("pos-two");
-      body.removeClass("pos-one");
-    } else if ( body.hasClass("pos-two") ) {
-      body.addClass("pos-three");
-      body.removeClass("pos-two");
-    } else if ( body.hasClass("pos-three") ) {
-      body.addClass("pos-four");
-      body.removeClass("pos-three");
-    } else if ( body.hasClass("pos-four") ) {
-      body.addClass("pos-five");
-      body.removeClass("pos-four");
-    } else if ( body.hasClass("pos-five") ) {
-      body.addClass("pos-six");
-      body.removeClass("pos-five");
-    } else if ( body.hasClass("pos-six") ) {
-      body.addClass("pos-seven");
-      body.removeClass("pos-six");
-    } else if ( body.hasClass("pos-seven") ) {
-      body.addClass("pos-quiz");
-      body.removeClass("pos-seven");
-    } else if ( body.hasClass("pos-quiz") ) {
-      body.addClass("pos-one");
-      body.removeClass("pos-quiz");
-    }
-
-  });
-
   //trigger the secondary info triggers to open the info slider and move position
   $(".secondary-info-trigger").on("click", function() {
     var body = $("body");
@@ -57,6 +25,61 @@ $(".loading").css("display","none");
     var body = $("body");
     body.removeClass("pos-three-a pos-four-a pos-five-a pos-six-a");
   });
+
+  // I was so stoked when I found out I could loop through an array instead of all the if else statements I had before. Seems much more logical and succinct this way.
+  // create array for all the pos classes
+  var slide = [
+    "pos-one",
+    "pos-two",
+    "pos-three",
+    "pos-four",
+    "pos-five",
+    "pos-six",
+    "pos-seven",
+    "pos-quiz"
+  ]
+
+  counter = 0;
+  body = $("body");
+
+  //declare function to progress slide forwards
+  function nextSlide(){
+    console.log("hello");
+    counterCurrent = counter;
+    counter = (counter + 1 ) % slide.length; // using ,modulus so that it loops back through
+    body.addClass(slide[counter]);
+    body.removeClass(slide[counterCurrent] );
+  };
+
+  //declare function to reverse through slides
+  function prevSlide(){
+    if (body.hasClass("pos-one")) {
+      return;
+    } else {
+      counterCurrent = counter;
+      counter = counter - 1;
+      body.addClass(slide[counter]);
+      body.removeClass(slide[counterCurrent] );
+    }
+  }
+  
+// on click next btn progress through array
+  $(".next").on("click", nextSlide);
+
+//on click prev btn reverse through the array
+  $(".previous").on("click", prevSlide);
+
+  // cycle through the array on click of button
+
+  //create function to cycle through the array
+
+  //listen for key press
+
+  // check which key it was and execute one of two arrays for right or left key
+
+
+
+
 
 //   //code to morph the svg button on hover
 //   var createBouncyButtons = (function() {
