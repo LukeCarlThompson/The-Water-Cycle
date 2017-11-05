@@ -5,8 +5,9 @@
 //color variables
 $white: #ffffff;
 $black: #000000;
-$shadow: rgba(#000000, 0.25);
+$shadow: rgba($black, 0.25);
 $yellow: #f2ca21;
+$blue: rgb(55, 145, 241);
 
 //ease variables
 $ease: ease-in-out;
