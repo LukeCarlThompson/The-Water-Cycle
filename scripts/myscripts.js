@@ -69,13 +69,14 @@ $(".loading").css("display","none");
 //on click prev btn reverse through the array
   $(".previous").on("click", prevSlide);
 
-  // cycle through the array on click of button
-
-  //create function to cycle through the array
-
-  //listen for key press
-
-  // check which key it was and execute one of two arrays for right or left key
+// listening for keydown and executing next or prev slide fucntions if the left or right arrow keys are pressed.
+$(document).on("keydown", function(e) {
+  if (e.keyCode == 39) {
+    nextSlide();
+  } else if (e.keyCode == 37) {
+    prevSlide();
+  }
+});
 
 
 
