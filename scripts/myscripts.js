@@ -78,6 +78,57 @@ $(document).on("keydown", function(e) {
   }
 });
 
+// code for quiz section
+$("#quiz-submit").on("click", function(){
+    //loop through each question
+    
+    //create score variable
+      var score = 0;
+    
+    $(".question").each(function(){
+      
+    //remove correction class
+      var correctRadio = $(this).find("[data-correct]").parent();
+        correctRadio.removeClass("correction");
+      
+      
+      //remove all message divs
+      $('.quiz-msg', this).remove();
+      
+      var correct = $(this).find(":checked[data-correct]").length;
+      //console.log(correct);
+      
+      
+      //check answer
+      if(correct == 1){
+        //alert("correct!");
+        var msgHtml = '<div class="quiz-msg correct">Success!</div>';
+        $(this).append(msgHtml);
+        
+        //add one to the score
+        score++;
+        
+      } else {
+        //alert("incorrect");
+        var msgIncorrect = '<div class="quiz-msg incorrect">Incorrect</div>';
+        $(this).append(msgIncorrect);
+        
+        //find the correct radio button and add class
+        var correctRadio = $(this).find("[data-correct]").parent();
+        correctRadio.addClass("correction");
+        
+      }
+      
+    });
+    
+    //output score on the screen
+    $('#score').text(score);
+
+    if (score == 3) {
+
+    }
+    
+  });
 
 
 

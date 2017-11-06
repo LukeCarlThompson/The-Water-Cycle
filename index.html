@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
-  <body class="pos-one">
+  <body class="pos-quiz">
     <div class="loading" style="display: block; background-color: red; position: absolute; z-index: 999; top: 0px; left: 0px; bottom: 0px; right: 0px; text-align: center; padding-top: 40%; ">Loading...</div>
     <div class="viewport">
       <div class="progress-indicate">
@@ -80,7 +80,55 @@
       <div class="content-container quiz">
         <h2 class="quiz-title">The Water Cycle Quiz</h2>
         <div class="main-info-box">
-          <p>This is the quizzzzzzzz.....</p>
+          <div class="question">
+            <p>1. What is the largest body of water?</p>
+            <label>
+              <input type="radio" name="answers[1]" value="A">
+              The ocean
+            </label>
+            <label>
+              <input type="radio" name="answers[1]" value="B" data-correct>
+              A lake
+            </label>
+            <label>
+              <input type="radio" name="answers[1]" value="C">
+              Amazon River
+              </label>
+          </div>
+          <div class="question">
+            <p>1. When water evaporates it turns into?</p>
+            <label>
+              <input type="radio" name="answers[2]" value="A">
+              Rain
+            </label>
+            <label>
+              <input type="radio" name="answers[2]" value="B"data-correct>
+              Water vapor
+            </label>
+            <label>
+              <input type="radio" name="answers[2]" value="C">
+              condensation
+            </label>
+          </div>
+          <div class="question">
+            <p>1. Trees absorb water through their?</p>
+            <label>
+              <input type="radio" name="answers[3]" value="A">
+              Leaves
+            </label>
+            <label>
+              <input type="radio" name="answers[3]" value="B"data-correct>
+              Trunk
+            </label>
+            <label>
+              <input type="radio" name="answers[3]" value="C">
+              Roots
+            </label>
+          </div>
+          <button class="btn" id="quiz-submit">Submit</button>
+          <div>
+            Score: <span id="score">0</span>
+          </div>
         </div>
       </div>
       <a href="#" class="btn next first">
