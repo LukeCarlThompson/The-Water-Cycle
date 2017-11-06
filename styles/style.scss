@@ -124,6 +124,7 @@ html {
   transition: transform .3s $bounce;
   position: absolute;
   display: inline-block;
+  width: 400px;
   @include hide;
   top: 10%;
   left: 20%;
@@ -295,27 +296,27 @@ html {
 
 .trees-trigger {
   position: absolute;
-  top: 50%;
-  left: 49%;
+  top: 46%;
+  left: 47%;
   transform: scale(0);
 }
 
 .ocean-trigger {
   position: absolute;
-  top: 72%;
-  left: 65%;
+  top: 69%;
+  left: 66%;
 }
 
 .vapor-trigger {
   position: absolute;
-  top: 60%;
-  left: 69%;
+  top: 56%;
+  left: 68%;
 }
 
 .clouds-trigger {
   position: absolute;
-  top: 26%;
-  left: 69%;
+  top: 21%;
+  left: 68%;
 }
 
 // all position classes to control everything else based on which position the main scene is in.
