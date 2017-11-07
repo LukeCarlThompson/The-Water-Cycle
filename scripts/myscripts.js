@@ -3,8 +3,8 @@
 // Author: Luke Carl Thompson
 
 $(document).ready(function(){
-// hide the loading spinner
-$(".loading").css("display","none");
+  // hide the loading spinner
+  $(".loading").css("display","none");
 
   //trigger the secondary info triggers to open the info slider and move position
   $(".secondary-info-trigger").on("click", function() {
@@ -44,11 +44,16 @@ $(".loading").css("display","none");
 
   //declare function to progress slide forwards
   function nextSlide(){
-    console.log("hello");
     counterCurrent = counter;
     counter = (counter + 1 ) % slide.length; // using ,modulus so that it loops back through
     body.addClass(slide[counter]);
     body.removeClass(slide[counterCurrent] );
+    // animate clouds between slide 6 and 7 then instantly return them back to their original position
+    if (counter == 6) {
+      $(".clouds, .clouds-02, clouds-03").animate({ left: "-50%" }, 2000, function() {
+        $(this).animate({ left : "0"}, 1)
+      });
+    }
   };
 
   //declare function to reverse through slides
@@ -63,23 +68,23 @@ $(".loading").css("display","none");
     }
   }
   
-// on click next btn progress through array
+  // on click next btn progress through array
   $(".next").on("click", nextSlide);
 
-//on click prev btn reverse through the array
+  //on click prev btn reverse through the array
   $(".previous").on("click", prevSlide);
 
-// listening for keydown and executing next or prev slide fucntions if the left or right arrow keys are pressed.
-$(document).on("keydown", function(e) {
-  if (e.keyCode == 39) {
-    nextSlide();
-  } else if (e.keyCode == 37) {
-    prevSlide();
-  }
-});
+  // listening for keydown and executing next or prev slide fucntions if the left or right arrow keys are pressed.
+  $(document).on("keydown", function(e) {
+    if (e.keyCode == 39) {
+      nextSlide();
+    } else if (e.keyCode == 37) {
+      prevSlide();
+    }
+  });
 
-// code for quiz section
-$("#quiz-submit").on("click", function(){
+  // code for quiz section
+  $("#quiz-submit").on("click", function(){
     
     //create score variable
     var score = 0;
@@ -96,7 +101,6 @@ $("#quiz-submit").on("click", function(){
       $('.quiz-msg', this).remove();
       
       var correct = $(this).find(":checked[data-correct]").length;
-      //console.log(correct);
       
       //check answer
       if(correct == 1){
