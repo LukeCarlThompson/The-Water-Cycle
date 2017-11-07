@@ -44,8 +44,8 @@ html {
   background-image: url(images/clouds-half.svg);
   background-size: cover;
   margin-top: 7%;
-  width: 2500px;
-  height: 344px;
+  width: 50%;
+  height: 17.2%;
   position: absolute;
   animation: clouds-move 10s ease-in-out alternate infinite;
 }
@@ -74,6 +74,51 @@ html {
   }
   100% {
     transform: translateY(-2%), scale(1.1);
+  }
+}
+
+.ground {
+  background-image: url(images/ground.svg);
+  background-size: cover;
+  width: 100%;
+  height: 55%;
+  bottom: 0;
+  position: absolute;
+}
+
+.ocean {
+  background-image: url(images/ocean.svg);
+  background-size: cover;
+  width: 46.36%;
+  height: 32.3%;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  transform-origin: 10% 30%;
+  animation: ocean-move 3s ease-in-out alternate infinite;
+}
+
+.ocean-01 {
+  bottom: -1%;
+  filter: drop-shadow( -5px -5px 10px $shadow );
+}
+
+.ocean-02 {
+  bottom: -0.5%;
+  filter: drop-shadow( -5px -5px 10px $shadow );
+  animation-delay: .7s;
+}
+
+.ocean-03 {
+  animation-delay: 1.2s;
+}
+
+@keyframes ocean-move {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(3%) rotate(0.8deg);
   }
 }
 
