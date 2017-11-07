@@ -102,7 +102,7 @@ $("#quiz-submit").on("click", function(){
       //check answer
       if(correct == 1){
         //alert("correct!");
-        var msgHtml = '<div class="quiz-msg correct">Success!</div>';
+        var msgHtml = '<div class="quiz-msg correct">Correct</div>';
         $(this).append(msgHtml);
         
         //add one to the score
@@ -110,7 +110,7 @@ $("#quiz-submit").on("click", function(){
         
       } else {
         //alert("incorrect");
-        var msgIncorrect = '<div class="quiz-msg incorrect">Incorrect</div>';
+        var msgIncorrect = '<div class="quiz-msg incorrect">Try again</div>';
         $(this).append(msgIncorrect);
         
         //find the correct radio button and add class
@@ -124,11 +124,33 @@ $("#quiz-submit").on("click", function(){
     //output score on the screen
     $('#score').text(score);
 
+    // if all answers correct launch the modal
     if (score == 3) {
-
+      launchModal();
     }
     
-  });
+  }); // end quiz submit button function
+
+  // function containing the modal initialisation and settings
+  function launchModal () {
+    $('.congrats').avgrund({
+        width: 380, // max is 640px
+        height: 280, // max is 350px
+        showClose: true, // switch to 'true' for enabling close button
+        showCloseText: 'close', // type your text for close button
+        closeByEscape: true, // enables closing popup by 'Esc'..
+        closeByDocument: false, // ..and by clicking document itself
+        holderClass: 'congrats', // lets you name custom class for popin holder..
+        overlayClass: '', // ..and overlay block
+        enableStackAnimation: false, // enables different type of popin's animation
+        onBlurContainer: '.scene', // enables blur filter for specified block
+        openOnEvent: false, // set to 'false' to init on load
+        setEvent: 'click', // use your event like 'mouseover', 'touchmove', etc.
+        onLoad: function (elem) {  }, // set custom call before popin is inited..
+        onUnload: function (elem) {  }, // ..and after it was closed
+        template: 'Congratulations you answered all the questions correctly!' // or function (elem) { ... }, or selector $('.content')
+      });
+  };
 
 
 

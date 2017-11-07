@@ -5,7 +5,7 @@
 @import "normalize";
 @import "variables-mixins";
 @import "typography";
-@import "avgrund.css";
+@import "avgrund";
 
 html {
   //overflow: hidden;
@@ -38,6 +38,7 @@ html {
   margin-top:  -1000px;
   transform: translateX(40%) translateY(11%) scale(1.6);
   transition-delay: 1s;
+  transition: transform .5s ease;
 }
 
 //style thr progress indicators
@@ -126,7 +127,7 @@ html {
   position: absolute;
   display: inline-block;
   width: 400px;
-  @include hide;
+  @include hidden;
   top: 10%;
   left: 20%;
   &.first {
@@ -138,11 +139,13 @@ html {
     top: 100px;
     left: 200px;
   }
-  &.quiz {
-    margin-top: 10%;
-    top: 0%;
-    left: calc(50% - 200px);
-  }
+}
+
+// styles for the quiz-container
+.quiz-container {
+  @include hidden;
+  top: 50%;
+  transform: translateY(-50%) scale(0);
 }
 
 // styles for the main title
@@ -169,8 +172,8 @@ html {
     background-color: $yellow;
     border-radius: 4px;
     padding: 10px;
-    height: 400px;
-    width: 500px;
+    // height: 400px;
+    // width: 500px;
   }
 }
 
@@ -633,4 +636,45 @@ html {
   .progress-indicate .current {
     transform: translateX(315px);
   }
+}
+
+// styles for the quiz
+
+.question {
+  padding: 10px 16px 16px;
+  background: #eee;
+  margin-bottom: 1em;
+  p {
+    margin-top: 0;
+  }
+}
+
+.quiz-msg {
+  padding: 0.5em;
+  margin-top: 1em;
+}
+.quiz-msg.correct {
+  background: #e8ffc6;
+}
+.quiz-msg.incorrect {
+  background: #ffe5cc;
+}
+
+.correct {
+  background: green;
+  padding: 0.2em;
+}
+
+.correction {
+  border-radius: 4px;
+  background-color: red;
+}
+
+label {
+  margin: 0 20px 0 0;
+  padding: 5px 15px;
+}
+
+.congrats {
+  border-radius: 4px;
 }

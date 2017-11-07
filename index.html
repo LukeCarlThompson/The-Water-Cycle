@@ -6,7 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
-  <body class="pos-quiz">
+  <body class="pos-one">
     <div class="loading" style="display: block; background-color: red; position: absolute; z-index: 999; top: 0px; left: 0px; bottom: 0px; right: 0px; text-align: center; padding-top: 40%; ">Loading...</div>
     <div class="viewport">
       <div class="progress-indicate">
@@ -77,17 +77,17 @@
           <p>The air in Earths atmosphere of always moving around. This movement is called wind. Wind moves the clouds to different parts of the world. The tiny droplets of water inside clouds can join together to form larger ones. These larger droplets fall to the ground as rain and start the water cycle again.</p>
         </div>
       </div>
-      <div class="content-container quiz">
+      <div class="quiz-container quiz">
         <h2 class="quiz-title">The Water Cycle Quiz</h2>
         <div class="main-info-box">
           <div class="question">
             <p>1. What is the largest body of water?</p>
             <label>
-              <input type="radio" name="answers[1]" value="A">
+              <input type="radio" name="answers[1]" value="A" data-correct>
               The ocean
             </label>
             <label>
-              <input type="radio" name="answers[1]" value="B" data-correct>
+              <input type="radio" name="answers[1]" value="B">
               A lake
             </label>
             <label>
@@ -96,7 +96,7 @@
               </label>
           </div>
           <div class="question">
-            <p>1. When water evaporates it turns into?</p>
+            <p>2. When water evaporates it turns into?</p>
             <label>
               <input type="radio" name="answers[2]" value="A">
               Rain
@@ -107,21 +107,21 @@
             </label>
             <label>
               <input type="radio" name="answers[2]" value="C">
-              condensation
+              Condensation
             </label>
           </div>
           <div class="question">
-            <p>1. Trees absorb water through their?</p>
+            <p>3. Trees absorb water through their?</p>
             <label>
               <input type="radio" name="answers[3]" value="A">
               Leaves
             </label>
             <label>
-              <input type="radio" name="answers[3]" value="B"data-correct>
+              <input type="radio" name="answers[3]" value="B">
               Trunk
             </label>
             <label>
-              <input type="radio" name="answers[3]" value="C">
+              <input type="radio" name="answers[3]" value="C" data-correct>
               Roots
             </label>
           </div>
@@ -129,6 +129,7 @@
           <div>
             Score: <span id="score">0</span>
           </div>
+          <div class="congrats"></div>
         </div>
       </div>
       <a href="#" class="btn next first">

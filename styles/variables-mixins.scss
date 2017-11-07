@@ -28,6 +28,11 @@ $bounce: cubic-bezier(0.79, 0.2, 0.65, 1.43);
   pointer-events: none;
 }
 
+@mixin hidden {
+  transform: scale(0);
+  pointer-events: none;
+}
+
 @mixin show-02 {
   animation: stretch-bounce 1.5s linear;
   animation-fill-mode: both;
