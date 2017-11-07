@@ -80,14 +80,14 @@ $(document).on("keydown", function(e) {
 
 // code for quiz section
 $("#quiz-submit").on("click", function(){
-    //loop through each question
     
     //create score variable
-      var score = 0;
-    
-    $(".question").each(function(){
+    var score = 0;
+
+    //loop through each question
+    $(".question").each(function(i){
       
-    //remove correction class
+      //remove correction class
       var correctRadio = $(this).find("[data-correct]").parent();
         correctRadio.removeClass("correction");
       
@@ -98,11 +98,10 @@ $("#quiz-submit").on("click", function(){
       var correct = $(this).find(":checked[data-correct]").length;
       //console.log(correct);
       
-      
       //check answer
       if(correct == 1){
         //alert("correct!");
-        var msgHtml = '<div class="quiz-msg correct">Correct</div>';
+        var msgHtml = '<svg class="correct-icon quiz-msg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">' + '<title>correct answer</title>' + '<circle class="circle" cx="50" cy="50" r="50"/>' + '<path class="tick" d="M43.75,75.5a5.5,5.5,0,0,1-3.3-1.1l-20-15a5.5,5.5,0,1,1,6.6-8.8L42.43,62.13,67.94,24.42a5.5,5.5,0,0,1,9.12,6.16L48.31,73.08a5.52,5.52,0,0,1-3.65,2.34A5.59,5.59,0,0,1,43.75,75.5Z"/>' + '</svg>';
         $(this).append(msgHtml);
         
         //add one to the score
@@ -110,19 +109,17 @@ $("#quiz-submit").on("click", function(){
         
       } else {
         //alert("incorrect");
-        var msgIncorrect = '<div class="quiz-msg incorrect">Try again</div>';
+        var msgIncorrect = '<svg class="incorrect-icon quiz-msg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">' + '<title>wrong answer</title>' + '<circle class="circle" cx="50" cy="50" r="50"/>' + '<path class="cross" d="M57.07,50,75.63,31.44a5,5,0,0,0-7.07-7.07L50,42.93,31.44,24.37a5,5,0,0,0-7.07,7.07L42.93,50,24.37,68.56a5,5,0,0,0,0,7.07,5,5,0,0,0,7.07,0L50,57.07,68.56,75.63a5,5,0,0,0,7.07-7.07Z"/>' + '</svg>';
         $(this).append(msgIncorrect);
         
         //find the correct radio button and add class
         var correctRadio = $(this).find("[data-correct]").parent();
         correctRadio.addClass("correction");
-        
       }
-      
-    });
+    }); // end of question check each function
     
     //output score on the screen
-    $('#score').text(score);
+    $('#score-num').text(score);
 
     // if all answers correct launch the modal
     if (score == 3) {

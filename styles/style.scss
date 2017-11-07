@@ -72,18 +72,27 @@ html {
   z-index: 100;
   color: $white;
   display: inline-block;
-  font-family: 'Nunito', sans-serif;
+  font-family: $buttons;
   font-weight: 700;
   letter-spacing: 2px;
   font-size: 18px;
   text-transform: uppercase;
+  border: 0;
   // @include hide;
   &.next {
     position: absolute;
-  text-align: center;
-  top: 80%;
-  left: 50%;
+    text-align: center;
+    top: 80%;
+    left: 50%;
     @include hide;
+  }
+  &.submit {
+    background-color: $blue;
+    transition: background-color .5s ease;
+    float: right;
+    &:hover {
+      background-color: darken($blue, 10%)
+    }
   }
   svg {
     position: absolute;
@@ -99,7 +108,6 @@ html {
     vertical-align: middle;
     width: 260px;
     display: inline-block;
-    font-family: 'Nunito', sans-serif;
     font-weight: 700;
     letter-spacing: 2px;
     font-size: 18px;
@@ -644,35 +652,54 @@ html {
   padding: 10px 16px 16px;
   background: #eee;
   margin-bottom: 1em;
+  position: relative;
   p {
     margin-top: 0;
   }
 }
 
 .quiz-msg {
-  padding: 0.5em;
-  margin-top: 1em;
-}
-.quiz-msg.correct {
-  background: #e8ffc6;
-}
-.quiz-msg.incorrect {
-  background: #ffe5cc;
+  transform: scale(0);
+  @include show-02;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
-.correct {
-  background: green;
-  padding: 0.2em;
+.correct-icon {
+  .circle {
+    fill: green;
+  }
+  .tick {
+    fill: $white;
+  }
+}
+
+.incorrect-icon {
+  .circle {
+    fill: red;
+  }
+  .cross {
+    fill: $white;
+  }
 }
 
 .correction {
   border-radius: 4px;
-  background-color: red;
+  background-color: $yellow;
 }
 
 label {
   margin: 0 20px 0 0;
   padding: 5px 15px;
+  display: inline-block;
+}
+
+.score {
+  font-size: 1.2em;
+  font-family: $copy;
 }
 
 .congrats {

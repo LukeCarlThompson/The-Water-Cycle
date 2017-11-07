@@ -9,6 +9,17 @@ $shadow: rgba($black, 0.25);
 $yellow: #f2ca21;
 $blue: rgb(55, 145, 241);
 
+// font styles
+$buttons: 'Nunito', sans-serif;
+$titles: 'Nunito', sans-serif;
+$copy: 'Nunito', sans-serif;
+
+//typography
+h1, h2, h3, h4, h5, h6 {
+  font-family: $titles;
+  font-weight: 800;
+}
+
 //ease variables
 $ease: ease-in-out;
 $bounce: cubic-bezier(0.79, 0.2, 0.65, 1.43);
