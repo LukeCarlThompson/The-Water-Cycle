@@ -144,7 +144,7 @@ $("#quiz-submit").on("click", function(){
         openOnEvent: false, // set to 'false' to init on load
         setEvent: 'click', // use your event like 'mouseover', 'touchmove', etc.
         onLoad: function (elem) {  }, // set custom call before popin is inited..
-        onUnload: function (elem) {  }, // ..and after it was closed
+        onUnload: function () { nextSlide() }, // after it's closed go back to the first slide.
         template: 'Congratulations you answered all the questions correctly!' // or function (elem) { ... }, or selector $('.content')
       });
   };
