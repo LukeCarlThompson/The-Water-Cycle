@@ -48,6 +48,12 @@ $(document).ready(function(){
     counter = (counter + 1 ) % slide.length; // using ,modulus so that it loops back through
     body.addClass(slide[counter]);
     body.removeClass(slide[counterCurrent] );
+    // animate the current slide indicator to next position
+    if ( counter == 0) {
+      $(".progress-indicate .current").animate({ left: "38px" }, 1000);
+    } else {
+      $(".progress-indicate .current").animate({ left: "+=35px" }, 1000);
+    }
     // animate clouds between slide 6 and 7 then instantly return them back to their original position
     if (counter == 6) {
       $(".clouds, .clouds-02, clouds-03").animate({ left: "-50%" }, 2000, function() {
@@ -66,6 +72,8 @@ $(document).ready(function(){
       body.addClass(slide[counter]);
       body.removeClass(slide[counterCurrent] );
     }
+    // animate the current slide indicator to prev position
+    $(".progress-indicate .current").animate({ left: "-=35px" }, 1000);
   }
   
   // on click next btn progress through array
