@@ -31,7 +31,7 @@ html {
   width: 5000px;
   // background: url(images/scene-wide.svg);
   // background: linear-gradient(to bottom right, #fff1eb 0%, #ace0f9 100%);
-  background: radial-gradient(farthest-side at 90% 70%, #fff4eb 0, #86ccf5 40%, #7f97c0 80%);
+  background: radial-gradient(farthest-side at 90% 70%, #fff4eb 0, #a4dbfa 60%, #a4badd 100%);
   position: absolute;
   z-index: -10;
   left: 50%;
@@ -41,6 +41,17 @@ html {
   transform: translateX(40%) translateY(11%) scale(1.6);
   transition-delay: 1s;
   transition: transform .5s ease;
+  &::after {
+    content:"";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(42, 43, 66, 0.35);
+    transition: background-color 2s ease-in-out;
+  }
 }
 .clouds, .clouds-02, .clouds-03{
   background-image: url(images/clouds-half.svg);
@@ -578,6 +589,10 @@ html {
     transform: translateX(-19%) translateY(-8%) scale(1);
     transition: transform .8s $ease;
     transition-delay: .3s;
+     &::after {
+      content:"";
+      background-color: rgba(42, 43, 66, 0);
+    }
   }
   .fourth{
     @include hide;
@@ -605,6 +620,10 @@ html {
       transform: translateX(-35%) translateY(-8%) scale(1.5);
       transition: transform .3s $ease;
       transition-delay: .2s;
+      &::after {
+        content:"";
+        background-color: rgba(42, 43, 66, 0);
+      }
     }
     .fifth {
       @include hide;
@@ -629,6 +648,10 @@ html {
     transform: translateX(-17%) translateY(25%) scale(.9);
     transition: transform 1s $ease;
     transition-delay: .3s;
+    &::after {
+      content:"";
+      background-color: rgba(42, 43, 66, 0);
+    }
   }
   .fifth{
     @include hide;
@@ -656,6 +679,10 @@ html {
       transform: translateX(-25%) translateY(30%) scale(1.4);
       transition: transform .3s $ease;
       transition-delay: .2s;
+      &::after {
+        content:"";
+        background-color: rgba(42, 43, 66, 0);
+      }
     }
     .sixth {
       @include hide;
