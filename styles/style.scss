@@ -593,9 +593,6 @@ html {
       transition: transform .3s $ease;
       transition-delay: .2s;
     }
-    .sun {
-      transform: translateY(0);
-    }
     .fourth {
       @include hide;
       animation-delay: 0;

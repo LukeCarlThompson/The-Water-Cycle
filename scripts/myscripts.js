@@ -104,7 +104,7 @@ $(document).ready(function(){
       var rainIndex = 1;
       function createRain() {
         setTimeout (function() {
-          var rainXPos = randRange(0,100);
+          var rainXPos = randRange(10,70);
           $(".scene").prepend("<div class='rain' id='rain"+rainIndex+"'></div>");
           $("#rain"+rainIndex).css("left", rainXPos + "%");
           rainIndex++;
