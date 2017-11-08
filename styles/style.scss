@@ -125,6 +125,16 @@ html {
   height: 55%;
   bottom: 0;
   position: absolute;
+  pointer-events: none;
+}
+
+.kid {
+  position: absolute;
+  bottom: 49.25%;
+  left: 20%;
+  height: calc(17.5% / 2);
+  width: calc(6% / 2);
+  cursor: pointer;
 }
 
 .birds {
