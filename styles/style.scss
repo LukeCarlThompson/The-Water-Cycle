@@ -31,7 +31,7 @@ html {
   width: 5000px;
   // background: url(images/scene-wide.svg);
   // background: linear-gradient(to bottom right, #fff1eb 0%, #ace0f9 100%);
-  background: radial-gradient(farthest-side at 90% 70%, #fff4eb 0, #a4dbfa 60%, #a4badd 100%);
+  background: radial-gradient(farthest-side at 90% 40%, #c6fcff 0, #a4dbfa 60%, #a4badd 100%);
   position: absolute;
   z-index: -10;
   left: 50%;
@@ -53,6 +53,20 @@ html {
     transition: background-color 2s ease-in-out;
   }
 }
+.sun {
+  height: 5%;
+  width: 2%;
+  border-radius: 50%;
+  background-color: $white;
+  opacity:0.9;
+  position: absolute;
+  left: 78%;
+  top: 43%;
+  transform: translateY(650%);
+  transition: transform 2s ease-in-out;
+  box-shadow: 0px 0px 80px 50px lighten($yellow, 40%);
+}
+
 .clouds, .clouds-02, .clouds-03{
   background-image: url(images/clouds-half.svg);
   background-size: cover;
@@ -565,6 +579,9 @@ html {
       transition: transform .3s $ease;
       transition-delay: .2s;
     }
+    .sun {
+      transform: translateY(0);
+    }
     .fourth {
       @include hide;
       animation-delay: 0;
@@ -593,6 +610,9 @@ html {
       content:"";
       background-color: rgba(42, 43, 66, 0);
     }
+  }
+  .sun {
+    transform: translateY(0);
   }
   .fourth{
     @include hide;
@@ -625,6 +645,9 @@ html {
         background-color: rgba(42, 43, 66, 0);
       }
     }
+    .sun {
+      transform: translateY(0);
+    }
     .fifth {
       @include hide;
       animation-delay: 0;
@@ -652,6 +675,9 @@ html {
       content:"";
       background-color: rgba(42, 43, 66, 0);
     }
+  }
+  .sun {
+    transform: translateY(0);
   }
   .fifth{
     @include hide;
