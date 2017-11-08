@@ -127,6 +127,12 @@ html {
   position: absolute;
 }
 
+.birds {
+  bottom: 46%;
+  left: 47%;
+  position: absolute;
+}
+
 .tree {
   background-image: url(images/tree.svg);
   background-size: cover;
@@ -135,6 +141,12 @@ html {
   bottom: 36%;
   left: 47%;
   position: absolute;
+}
+
+.fish {
+  position: absolute;
+  bottom: 30%;
+  right: 27%;
 }
 
 .ocean {

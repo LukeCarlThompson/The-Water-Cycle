@@ -91,27 +91,27 @@ $(document).ready(function(){
     }
   });
 
-  // make it rain
-  var numRain = 200;
+  // // make it rain
+  // var numRain = 200;
 
-  //function to generate random locations
-  function randRange (min, max) {
-    return (Math.floor(Math.random() * (max - min + 1)) + min);
-  }
+  // //function to generate random locations
+  // function randRange (min, max) {
+  //   return (Math.floor(Math.random() * (max - min + 1)) + min);
+  // }
 
-  //create the rain at random locations
-    for( i=1; i < 100; i++) {
-      var rainIndex = 1;
-      function createRain() {
-        setTimeout (function() {
-          var rainXPos = randRange(10,70);
-          $(".scene").prepend("<div class='rain' id='rain"+rainIndex+"'></div>");
-          $("#rain"+rainIndex).css("left", rainXPos + "%");
-          rainIndex++;
-        }, randRange(0,2000));
-      }; // end of create rain function
-      createRain();
-    }; // end of for loop
+  // //create the rain at random locations
+  //   for( i=1; i < 100; i++) {
+  //     var rainIndex = 1;
+  //     function createRain() {
+  //       setTimeout (function() {
+  //         var rainXPos = randRange(10,70);
+  //         $(".scene").prepend("<div class='rain' id='rain"+rainIndex+"'></div>");
+  //         $("#rain"+rainIndex).css("left", rainXPos + "%");
+  //         rainIndex++;
+  //       }, randRange(0,2000));
+  //     }; // end of create rain function
+  //     createRain();
+  //   }; // end of for loop
   
 
   // code for quiz section
@@ -159,6 +159,7 @@ $(document).ready(function(){
     // if all answers correct launch the modal
     if (score == 3) {
       launchModal();
+      nextSlide();
     }
     
   }); // end quiz submit button function
@@ -179,12 +180,85 @@ $(document).ready(function(){
         openOnEvent: false, // set to 'false' to init on load
         setEvent: 'click', // use your event like 'mouseover', 'touchmove', etc.
         onLoad: function (elem) {  }, // set custom call before popin is inited..
-        onUnload: function () { nextSlide() }, // after it's closed go back to the first slide.
+        onUnload: function () { }, // after it's closed do something
         template: 'Congratulations you answered all the questions correctly!' // or function (elem) { ... }, or selector $('.content')
       });
   };
 
 
+// bodymovin birds animation
+var container = document.getElementById('birds');
+
+var params = { container: container, // the dom element that will contain the animation
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                path: 'bodymovin/birds.json' // the path to the animation json
+              };
+                
+var birds = bodymovin.loadAnimation(params);
+
+var tree = document.getElementById('trees-trigger');
+
+var audioBirds = document.getElementById('birds-chirping');
+
+tree.addEventListener("click", function (){
+  console.log("it should play");
+  birds.play();
+  audioBirds.play();
+});
+
+birds.addEventListener("complete", function (){
+  console.log("complete");
+    birds.stop();
+  });
+  
+  //fish animation
+  var fishContainer = document.getElementById('fish');
+
+  var params = { container: fishContainer, // the dom element that will contain the animation
+                renderer: 'svg',
+                loop: 2,
+                autoplay: false,
+                path: 'bodymovin/fish.json' // the path to the animation json
+              };
+                
+  var fish = bodymovin.loadAnimation(params);
+
+  var ocean = document.getElementById('ocean-trigger');
+
+// var audioFish = document.getElementById('fish-splashing');
+
+  ocean.addEventListener("click", function (){
+    console.log("it should play");
+    setTimeout( function(){
+      fish.play();
+    // audioFish.play();
+    }, 1500);
+  });
+
+  fish.addEventListener("complete", function (){
+    console.log("complete");
+    fish.stop();
+  });
+
+
+
+
+// tree.addEventListener("click", function() {
+//   birdsAnim.play();
+// });
+
+// // bodymovin test
+// var container = document.getElementById('bodymovin-test');
+
+// bodymovin.loadAnimation({
+// container: container, // the dom element that will contain the animation
+// renderer: 'svg',
+// loop: true,
+// autoplay: true,
+// path: 'bodymovin/data.json' // the path to the animation json
+// });
 
 
 //   //code to morph the svg button on hover

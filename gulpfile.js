@@ -12,6 +12,10 @@ var jsSources = ['scripts/*.js'],
     sassSourcesAll = ['styles/*.scss'],
     sassSources = ['styles/style.scss']
     htmlSources = ['*.html'],
+    bodymovinSources = ['bodymovin/*.json'],
+    bodymovinOutput = 'production/bodymovin',
+    audioSources = ['audio/*'],
+    audioOutput = 'production/audio',
     outputDir = 'production';
 
 
@@ -21,7 +25,12 @@ gulp.task('log', function() {
 
 gulp.task('copy', function() {
   gulp.src(htmlSources)
-  .pipe(gulp.dest(outputDir))
+  .pipe(gulp.dest(outputDir));
+  gulp.src(bodymovinSources)
+  .pipe(gulp.dest(bodymovinOutput));
+  gulp.src(audioSources)
+  .pipe(gulp.dest(audioOutput));
+  
 });
 
 gulp.task('sass', function() {
@@ -49,6 +58,8 @@ gulp.task('watch', function() {
   gulp.watch(jsSources, ['js']);
   gulp.watch(sassSourcesAll, ['sass']);
   gulp.watch(htmlSources, ['copy']);
+  gulp.watch(bodymovinSources, ['copy']);
+  gulp.watch(audioSources, ['copy']);
   gulp.watch(htmlSources, ['html']);
 });
 
