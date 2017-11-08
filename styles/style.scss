@@ -306,11 +306,13 @@ html {
 
 .main-info-box {
   max-width: 600px;
-  //border: 2px solid green;
+  background-color: rgba($white, 0.25);
   display: inline-block;
   text-align: left;
+  border-radius: 4px;
   p {
-    line-height: 2em;
+    line-height: 1.5em;
+    margin: 1em;
   }
   .quiz & {
     background-color: $yellow;
@@ -538,7 +540,7 @@ html {
   &.pos-three-a {
     .scene {
       transform: translateX(-2%) translateY(-4%) scale(1.1);
-      transition: transform .3s $ease;
+      transition: transform 1s $ease;
       transition-delay: .2s;
     }
     .third {
@@ -590,7 +592,7 @@ html {
   &.pos-four-a {
     .scene {
       transform: translateX(-28%) translateY(-28%) scale(1.4);
-      transition: transform .3s $ease;
+      transition: transform 1s $ease;
       transition-delay: .2s;
     }
     .fourth {
@@ -649,7 +651,7 @@ html {
   &.pos-five-a {
     .scene {
       transform: translateX(-35%) translateY(-8%) scale(1.5);
-      transition: transform .3s $ease;
+      transition: transform 1s $ease;
       transition-delay: .2s;
       &::after {
         content:"";
@@ -714,7 +716,7 @@ html {
   &.pos-six-a {
     .scene {
       transform: translateX(-25%) translateY(30%) scale(1.4);
-      transition: transform .3s $ease;
+      transition: transform 1s $ease;
       transition-delay: .2s;
       &::after {
         content:"";
