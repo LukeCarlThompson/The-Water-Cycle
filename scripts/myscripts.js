@@ -91,6 +91,29 @@ $(document).ready(function(){
     }
   });
 
+  // make it rain
+  var numRain = 200;
+
+  //function to generate random locations
+  function randRange (min, max) {
+    return (Math.floor(Math.random() * (max - min + 1)) + min);
+  }
+
+  //create the rain at random locations
+    for( i=1; i < 100; i++) {
+      var rainIndex = 1;
+      function createRain() {
+        setTimeout (function() {
+          var rainXPos = randRange(0,100);
+          $(".scene").prepend("<div class='rain' id='rain"+rainIndex+"'></div>");
+          $("#rain"+rainIndex).css("left", rainXPos + "%");
+          rainIndex++;
+        }, randRange(0,2000));
+      }; // end of create rain function
+      createRain();
+    }; // end of for loop
+  
+
   // code for quiz section
   $("#quiz-submit").on("click", function(){
     
