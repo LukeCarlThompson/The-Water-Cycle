@@ -31,7 +31,7 @@ html {
   width: 5000px;
   // background: url(images/scene-wide.svg);
   // background: linear-gradient(to bottom right, #fff1eb 0%, #ace0f9 100%);
-  background: radial-gradient(farthest-side at 90% 40%, #c6fcff 0, #a4dbfa 60%, #a4badd 100%);
+  background: radial-gradient(farthest-side at 90% 40%, #e6fcfd 0, #c1eefc 60%, #a4badd 100%);
   position: absolute;
   z-index: -10;
   left: 50%;
@@ -138,25 +138,41 @@ html {
 }
 
 .birds {
-  bottom: 46%;
-  left: 47%;
+  bottom: 48%;
+  left: 43%;
+  height: calc(60% / 1.5);
+  width: calc(20% / 1.5);
   position: absolute;
 }
 
 .tree {
   background-image: url(images/tree.svg);
   background-size: cover;
-  width: 4.26%;
-  height: 15.8%;
+  width: calc(4.26% * 1.5);
+  height: calc(15.8% * 1.5);
   bottom: 36%;
-  left: 47%;
+  left: 45%;
   position: absolute;
+  bottom: 36%;
+  left: 45%;
+  cursor: pointer;
 }
 
 .fish {
   position: absolute;
   bottom: 30%;
   right: 27%;
+  height: 15%;
+  width: 10%;
+}
+.evaporation {
+  position: absolute;
+  bottom: 24%;
+  right: 23%;
+  height: 62.5%;
+  width: 14%;
+  opacity: 0;
+  transition: opacity 1s;
 }
 
 .ocean {
@@ -169,6 +185,7 @@ html {
   position: absolute;
   transform-origin: 10% 30%;
   animation: ocean-move 3s ease-in-out alternate infinite;
+  cursor: pointer;
 }
 
 .ocean-01 {
@@ -281,9 +298,14 @@ html {
   position: absolute;
   transition: bottom .3s $bounce, text-shadow .3s ease, transform .3s $bounce;
   text-shadow: 0px 0px 0px $shadow;
+  @include show;
+  animation-delay: 2s;
   &:hover {
     transform: scale(1.1);
     text-shadow: 2px 2px 10px $shadow;
+  }
+  .more-info & {
+    @include hide;
   }
 }
 
@@ -406,6 +428,7 @@ html {
     opacity: 0;
     transition: transform .3s ease, opacity .4s ease;
     background-color: $yellow;
+    border-radius: 4px;
     padding: 10px 0;
     top: -50px;
     &::after {
@@ -432,6 +455,7 @@ html {
     border-radius: 50%;
     box-shadow: 0px 0px 0px $shadow;
     transition: transform.3s, box-shadow .3s $bounce;
+    cursor: pointer;
     &::after {
       content: "";
       position: absolute;
@@ -468,8 +492,8 @@ html {
 
 .trees-trigger {
   position: absolute;
-  top: 46%;
-  left: 47%;
+  top: 42%;
+  left: 46%;
   transform: scale(0);
 }
 
@@ -538,7 +562,7 @@ html {
 }
 .pos-three {
   .scene {
-    transform: translateX(4%) translateY(-3.5%) scale(.9);
+    transform: translateX(5%) translateY(1%) scale(.9);
     transition: transform 1.5s $ease;
     transition-delay: .3s;
   }
@@ -561,7 +585,7 @@ html {
   }
   &.pos-three-a {
     .scene {
-      transform: translateX(-2%) translateY(-4%) scale(1.1);
+      transform: translateX(-1%) translateY(-2%) scale(1.1);
       transition: transform 1s $ease;
       transition-delay: .2s;
     }
@@ -649,6 +673,9 @@ html {
   .sun {
     transform: translateY(0);
   }
+  .evaporation {
+    opacity: 1;
+  }
   .fourth{
     @include hide;
     &.next {
@@ -672,7 +699,7 @@ html {
   }
   &.pos-five-a {
     .scene {
-      transform: translateX(-35%) translateY(-8%) scale(1.5);
+      transform: translateX(-37%) translateY(-25%) scale(1.9);
       transition: transform 1s $ease;
       transition-delay: .2s;
       &::after {
@@ -682,6 +709,9 @@ html {
     }
     .sun {
       transform: translateY(0);
+    }
+    .evaporation {
+      opacity: 1;
     }
     .fifth {
       @include hide;
@@ -703,7 +733,7 @@ html {
 
 .pos-six {
   .scene {
-    transform: translateX(-17%) translateY(25%) scale(.9);
+    transform: translateX(-16%) translateY(23%) scale(1);
     transition: transform 1s $ease;
     transition-delay: .3s;
     &::after {
@@ -713,6 +743,9 @@ html {
   }
   .sun {
     transform: translateY(0);
+  }
+  .evaporation {
+    opacity: 1;
   }
   .fifth{
     @include hide;
@@ -744,6 +777,9 @@ html {
         content:"";
         background-color: rgba(42, 43, 66, 0);
       }
+    }
+    .evaporation {
+      opacity: 1;
     }
     .sixth {
       @include hide;

@@ -10,20 +10,20 @@ $(document).ready(function(){
   $(".secondary-info-trigger").on("click", function() {
     var body = $("body");
     if ( body.hasClass("pos-three")) {
-      body.addClass("pos-three-a");
+      body.addClass("pos-three-a more-info");
     } else if ( body.hasClass("pos-four")) {
-      body.addClass("pos-four-a");
+      body.addClass("pos-four-a more-info");
     } else if ( body.hasClass("pos-five")) {
-      body.addClass("pos-five-a");
+      body.addClass("pos-five-a more-info");
     } else if ( body.hasClass("pos-six")) {
-      body.addClass("pos-six-a");
+      body.addClass("pos-six-a more-info");
     }
   });
 
   //remove classes when close button clicked
   $(".close-btn").on("click", function() {
     var body = $("body");
-    body.removeClass("pos-three-a pos-four-a pos-five-a pos-six-a");
+    body.removeClass("pos-three-a pos-four-a pos-five-a pos-six-a more-info");
   });
 
   // I was so stoked when I found out I could loop through an array instead of all the if else statements I had before. Seems much more logical and succinct this way.
@@ -44,10 +44,14 @@ $(document).ready(function(){
 
   //declare function to progress slide forwards
   function nextSlide(){
-    counterCurrent = counter;
-    counter = (counter + 1 ) % slide.length; // using ,modulus so that it loops back through
-    body.addClass(slide[counter]);
-    body.removeClass(slide[counterCurrent] );
+    if ( body.hasClass("more-info")) {
+      return;
+    } else {
+        counterCurrent = counter;
+        counter = (counter + 1 ) % slide.length; // using ,modulus so that it loops back through
+        body.addClass(slide[counter]);
+        body.removeClass(slide[counterCurrent] );
+    }
     // animate the current slide indicator to next position
     if ( counter == 0) {
       $(".progress-indicate .current").animate({ left: "38px" }, 1000);
@@ -60,13 +64,26 @@ $(document).ready(function(){
         $(this).animate({ left : "0"}, 1)
       });
     }
+    if (counter == 4) {
+      // start the evaporation animation
+      console.log("evaporation should play");
+      setTimeout( function(){
+        evaporation.play();
+        // audioEvaporation.play();
+      }, 1500);
+    } else if (counter == 6 || counter == 4) {
+      console.log("evaporation should stop");
+      evaporation.stop();
+    }
   };
 
   //declare function to reverse through slides
   function prevSlide(){
     if (body.hasClass("pos-one")) {
       return;
-    } else {
+    } else if ( body.hasClass("more-info")) {
+      return;
+      } else {
       counterCurrent = counter;
       counter = counter - 1;
       body.addClass(slide[counter]);
@@ -193,7 +210,7 @@ $(document).ready(function(){
 
   });
 
-  // bodymovin birds animation
+  // bodymovin kid animation
   var container = document.getElementById('kid');
 
   var params = { container: container, // the dom element that will contain the animation
@@ -235,9 +252,15 @@ var params = { container: container, // the dom element that will contain the an
                 
 var birds = bodymovin.loadAnimation(params);
 
-var tree = document.getElementById('trees-trigger');
+var treeTrigger = document.getElementById('trees-trigger');
+var tree = document.getElementById('tree');
 
 var audioBirds = document.getElementById('birds-chirping');
+
+treeTrigger.addEventListener("click", function (){
+  birds.play();
+  audioBirds.play();
+});
 
 tree.addEventListener("click", function (){
   birds.play();
@@ -253,28 +276,49 @@ birds.addEventListener("complete", function (){
 
   var params = { container: fishContainer, // the dom element that will contain the animation
                 renderer: 'svg',
-                loop: 2,
+                loop: false,
                 autoplay: false,
                 path: 'bodymovin/fish.json' // the path to the animation json
               };
                 
   var fish = bodymovin.loadAnimation(params);
 
-  var ocean = document.getElementById('ocean-trigger');
+  var oceanTrigger = document.getElementById('ocean-trigger');
+  var ocean = document.getElementById('ocean');
 
 // var audioFish = document.getElementById('fish-splashing');
 
-  ocean.addEventListener("click", function (){
+  oceanTrigger.addEventListener("click", function (){
     console.log("fish should play");
     setTimeout( function(){
       fish.play();
     // audioFish.play();
-    }, 1500);
+    }, 2000);
+  });
+
+  ocean.addEventListener("click", function (){
+    console.log("fish should play");
+      fish.play();
+    // audioFish.play();
   });
 
   fish.addEventListener("complete", function (){
     fish.stop();
   });
+
+
+    //evaporation animation loaded. this is called by the slide counter function above to start and stop on the relevant slides
+  var evaporationContainer = document.getElementById('evaporation');
+
+  var params = { container: evaporationContainer, // the dom element that will contain the animation
+                renderer: 'svg',
+                loop: true,
+                autoplay: false,
+                path: 'bodymovin/evaporation.json' // the path to the animation json
+              };
+                
+  var evaporation = bodymovin.loadAnimation(params);
+
 
 
 
