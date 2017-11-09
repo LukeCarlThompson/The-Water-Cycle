@@ -379,7 +379,8 @@ html {
 .secondary-info-box {
   background-color: $yellow;
   position: absolute;
-  height: 100vh;
+  // 
+  border-radius: 4px;
   width: 300px;
   right: -300px;
   padding: 20px;
