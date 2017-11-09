@@ -3,8 +3,12 @@
 // Author: Luke Carl Thompson
 
 $(document).ready(function(){
-  // hide the loading spinner when the js file initialises
-  $(".loading").addClass("loading-complete");
+  // hide the loading spinner when everything is loaded
+  window.addEventListener('load', 
+  function() { 
+    $(".loading").addClass("loading-complete");
+  }, false);
+  
 
   //trigger the secondary info triggers to open the info slider and move position
   $(".secondary-info-trigger").on("click", function() {
