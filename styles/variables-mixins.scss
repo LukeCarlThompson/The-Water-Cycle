@@ -55,6 +55,11 @@ $bounce: cubic-bezier(0.79, 0.2, 0.65, 1.43);
   animation-fill-mode: both;
 }
 
+@mixin load-in {
+  animation: load-in 1s ease-out;
+  animation-fill-mode: forwards;
+}
+
 //hover effects
 @mixin hover {
   transform: scale(1.2);
@@ -131,6 +136,21 @@ $bounce: cubic-bezier(0.79, 0.2, 0.65, 1.43);
   80% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.007, 0, 1); }
   85.49% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.013, 0, 1); }
   100% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); } 
+}
+
+// load in animation
+@keyframes load-in {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
 }
 
 

@@ -11,8 +11,8 @@ html {
   //overflow: hidden;
 }
 
-  .loading {
-    //display: none;
+  .loading-complete {
+    @include load-in;
   }
 
 //create class to server as the viewport.

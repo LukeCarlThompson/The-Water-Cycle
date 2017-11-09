@@ -4,7 +4,7 @@
 
 $(document).ready(function(){
   // hide the loading spinner
-  $(".loading").css("display","none");
+  $(".loading").addClass("loading-complete");
 
   //trigger the secondary info triggers to open the info slider and move position
   $(".secondary-info-trigger").on("click", function() {
