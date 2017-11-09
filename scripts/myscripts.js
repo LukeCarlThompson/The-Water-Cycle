@@ -37,7 +37,7 @@ $(document).ready(function(){
     "pos-seven",
     "pos-quiz",
     "pos-modal"
-  ]
+  ];
 
   counter = 0;
   body = $("body");
