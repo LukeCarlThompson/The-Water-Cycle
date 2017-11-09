@@ -7,7 +7,7 @@
 @import "avgrund";
 
 html {
-  //overflow: hidden;
+  -webkit-font-smoothing: subpixel-antialiased; // this fixes a bug on safari where fonts render weirdly when being transformed
 }
 
   .loading-complete {
@@ -258,11 +258,19 @@ html {
     font-weight: 700;
   }
   &.next {
-    position: absolute;
-    text-align: center;
-    top: 80%;
-    right: 10%;
     @include hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $blue;
+    padding: 20px 50px;
+    border-radius: 100px;
+    box-shadow: 1px 1px 5px $shadow;
+    transition: box-shadow .5s $ease, background-color .5s $ease;
+    &:hover {
+      background-color: darken($blue, 10%);
+      box-shadow: 2px 2px 10px $shadow;
+    }
   }
   &.submit {
     background-color: $blue;
@@ -272,28 +280,21 @@ html {
       background-color: darken($blue, 10%)
     }
   }
-  svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    fill: #5FA7CE;
-    filter: drop-shadow(6px 6px 6px rgba(0,0,0,0.5));
-  }
-  span {
-    z-index: 2;
-    position: relative;
-    line-height: 80px;
-    vertical-align: middle;
-    width: 260px;
-    display: inline-block;
-    font-weight: 700;
-    letter-spacing: 2px;
-    font-size: 18px;
-    text-transform: uppercase;
-    color: $white;
-    //text-shadow: 1px 2px 1px black;
-  }
 }
+
+.next-holder { // this is a special container class needed so I can apply transform on hover to the button after it has been animated with a transform property.
+    position: absolute;
+    text-align: center;
+    display: inline-block;
+    height: 60px;
+    width: 150px;
+    top: 80%;
+    right: 10%;
+    transition: transform .3s $ease;
+    &:hover {
+      transform: scale(1.1) translateY(-4px);
+    }
+  }
 
 .previous {
   left: 10%;
@@ -301,10 +302,11 @@ html {
   position: absolute;
   @include show;
   animation-delay: 2s;
+  color: $white;
   p {
     transition: text-shadow .3s $ease, transform .3s $ease;
     text-shadow: 1px 1px 5px $shadow;
-    
+    color: $white;
   }
   &:hover p {
     transform: scale(1.1) translateY(-3px);

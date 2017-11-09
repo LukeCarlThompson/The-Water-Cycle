@@ -4,7 +4,7 @@
 
 //color variables
 $white: #ffffff;
-$black: #1f1f1f;
+$black: #2b2b2b;
 $shadow: rgba($black, 0.25);
 $yellow: #f2ca21;
 $blue: rgb(55, 145, 241);
@@ -25,6 +25,7 @@ p {
   font-family: $copy;
   font-weight: 600;
   font-size: 1em;
+  color: $black;
 }
 
 //ease variables
