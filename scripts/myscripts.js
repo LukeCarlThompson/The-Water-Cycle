@@ -3,7 +3,7 @@
 // Author: Luke Carl Thompson
 
 $(document).ready(function(){
-  // hide the loading spinner
+  // hide the loading spinner when the js file initialises
   $(".loading").addClass("loading-complete");
 
   //trigger the secondary info triggers to open the info slider and move position
@@ -26,8 +26,7 @@ $(document).ready(function(){
     body.removeClass("pos-three-a pos-four-a pos-five-a pos-six-a more-info");
   });
 
-  // I was so stoked when I found out I could loop through an array instead of all the if else statements I had before. Seems much more logical and succinct this way.
-  // create array for all the pos classes
+  // create array for all the pos classes to loop through in the next and prev functions
   var slide = [
     "pos-one",
     "pos-two",
@@ -114,31 +113,31 @@ $(document).ready(function(){
     }
   });
 
-  // // make it rain
-  // var numRain = 200;
+  // Rain section **********************************/
+  // the number of rain drops in each cycle
+  var numRain = 50;
 
-  // //function to generate random locations
+  //function to generate random numbers within a range
   function randRange (min, max) {
     return (Math.floor(Math.random() * (max - min + 1)) + min);
   }
 
-  // //create the rain at random locations
-  //   for( i=1; i < 100; i++) {
-  //     var rainIndex = 1;
-  //     function createRain() {
-  //       setTimeout (function() {
-  //         var rainXPos = randRange(10,70);
-  //         $(".scene").prepend("<div class='rain' id='rain"+rainIndex+"'></div>");
-  //         $("#rain"+rainIndex).css("left", rainXPos + "%");
-  //         rainIndex++;
-  //       }, randRange(0,2000));
-  //     }; // end of create rain function
-  //     createRain();
-  //   }; // end of for loop
+  //create the rain at random locations every two seconds, it takes two seconds for the rain animation to finish
+    for( i=1; i < numRain; i++) {
+      var rainIndex = 1;
+      function createRain() {
+        setTimeout (function() {
+          var rainXPos = randRange(10,70);
+          $(".scene").prepend("<div class='rain' id='rain"+rainIndex+"'></div>");
+          $("#rain"+rainIndex).css("left", rainXPos + "%");
+          rainIndex++;
+        }, randRange(0,2000));
+      }; // end of create rain function
+      createRain(); // make it rain
+    }; // end of for loop
   
-
-  // code for quiz section
-  $("#quiz-submit").on("click", function(){
+  // Quiz section ***************************************/
+  $("#quiz-submit").on("click", function(){ // on clicking the submit button for the quiz
     
     //create score variable
     var score = 0;
@@ -154,32 +153,30 @@ $(document).ready(function(){
       //remove all message divs
       $('.quiz-msg', this).remove();
       
-      var correct = $(this).find(":checked[data-correct]").length;
+      var correct = $(this).find(":checked[data-correct]").length; // find number of correct answers
       
       //check answer
-      if(correct == 1){
-        //alert("correct!");
+      if(correct == 1){ //if answer is correct add the checkmark icon
         var msgHtml = '<svg class="correct-icon quiz-msg" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">' + '<title>correct answer</title>' + '<circle class="circle" cx="50" cy="50" r="50"/>' + '<path class="tick" d="M43.75,75.5a5.5,5.5,0,0,1-3.3-1.1l-20-15a5.5,5.5,0,1,1,6.6-8.8L42.43,62.13,67.94,24.42a5.5,5.5,0,0,1,9.12,6.16L48.31,73.08a5.52,5.52,0,0,1-3.65,2.34A5.59,5.59,0,0,1,43.75,75.5Z"/>' + '</svg>';
         $(this).append(msgHtml);
         
-        //add one to the score
+        //and add one to the score
         score++;
         
-      } else {
-        //alert("incorrect");
+      } else { // if not correct the add the cross icon
         var msgIncorrect = '<svg class="incorrect-icon quiz-msg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">' + '<title>wrong answer</title>' + '<circle class="circle" cx="50" cy="50" r="50"/>' + '<path class="cross" d="M57.07,50,75.63,31.44a5,5,0,0,0-7.07-7.07L50,42.93,31.44,24.37a5,5,0,0,0-7.07,7.07L42.93,50,24.37,68.56a5,5,0,0,0,0,7.07,5,5,0,0,0,7.07,0L50,57.07,68.56,75.63a5,5,0,0,0,7.07-7.07Z"/>' + '</svg>';
         $(this).append(msgIncorrect);
         
-        //find the correct radio button and add class
+        //then find the correct radio button and add class
         var correctRadio = $(this).find("[data-correct]").parent();
         correctRadio.addClass("correction");
       }
     }); // end of question check each function
     
-    //output score on the screen
+    //output score to the screen
     $('#score-num').text(score);
 
-    // if all answers correct launch the modal
+    // if all answers correct launch the modal and move to the next side
     if (score == 3) {
       launchModal();
       nextSlide();
@@ -187,7 +184,7 @@ $(document).ready(function(){
     
   }); // end quiz submit button function
 
-  // function containing the modal initialisation and settings
+  // Modal initialisation and settings ***************************/
   function launchModal () {
     $('.congrats').avgrund({
         width: 380, // max is 640px
@@ -208,31 +205,29 @@ $(document).ready(function(){
       });
   };
 
-  //start the ambience
-  var ambience = document.getElementById("ambience");
+  //start the ambience when document is clicked, most browser won't allow autoplay these days and safari blocks autoplay on hover or mouseover too. So I've compromised by maing it play when a user clicks anywhere in the viewport div.
+  var ambience = document.getElementById("ambience"); // var for the background rain sounds
 
   $(".viewport").on("click", function(){
-    ambience.play(); 
+    ambience.play(); // play the rain sounds
 
   });
 
-  // bodymovin kid animation
-  var container = document.getElementById('kid');
+  // bodymovin kid animation **************************************/
+  var container = document.getElementById('kid'); // target the div, bodymovin library doesn't work with jquery objects or class selectors
 
-  var params = { container: container, // the dom element that will contain the animation
+  var params = { container: container, // settings for the bodymovin kid animation
                   renderer: 'svg',
                   loop: true,
                   autoplay: true,
                   path: 'bodymovin/kid.json' // the path to the animation json
                 };
                   
-  var kid = bodymovin.loadAnimation(params);
+  var kid = bodymovin.loadAnimation(params); // loading the animation parameters
 
-  var kidSpeakTrigger = document.getElementById('kid');
+  var kidSpeakTrigger = document.getElementById('kid'); // targeting the trigger to make the kid speak
 
-  // var kidSpeak = document.getElementById('kid-speak');
-
-  var kidSpeak = [
+  var kidSpeak = [ //array of different sounds the kid can make
     document.getElementById('voice1'),
     document.getElementById('voice2'),
     document.getElementById('voice3'),
@@ -240,13 +235,13 @@ $(document).ready(function(){
     document.getElementById('voice5')
   ];
 
-  kidSpeakTrigger.addEventListener("click", function (){
-    var randm = randRange (0, 4);
-    kidSpeak[randm].currentTime = 0;
-    kidSpeak[randm].play();
+  kidSpeakTrigger.addEventListener("click", function (){ // make a sound when clicking the kid
+    var randm = randRange (0, 4); // using the random number generator from before to help select one of the sounds from array
+    kidSpeak[randm].currentTime = 0; // setting the sound back to zero first, this is needed in case the chosen sound is already playing
+    kidSpeak[randm].play(); // say something kid
   });
 
-// bodymovin birds animation
+// bodymovin birds animation, same setup as the kid animation except this one doesn't loop or autoplay
 var container = document.getElementById('birds');
 
 var params = { container: container, // the dom element that will contain the animation
@@ -258,26 +253,26 @@ var params = { container: container, // the dom element that will contain the an
                 
 var birds = bodymovin.loadAnimation(params);
 
-var treeTrigger = document.getElementById('trees-trigger');
+var treeTrigger = document.getElementById('trees-trigger'); // triggered by the tree icon and the tree itself
 var tree = document.getElementById('tree');
 
-var audioBirds = document.getElementById('birds-chirping');
+var audioBirds = document.getElementById('birds-chirping'); // var for the sound
 
-treeTrigger.addEventListener("click", function (){
+treeTrigger.addEventListener("click", function (){ // when clicking the trigger play the animation and sound
   birds.play();
   audioBirds.play();
 });
 
-tree.addEventListener("click", function (){
+tree.addEventListener("click", function (){ // when clicking the tree play the animation and sound
   birds.play();
   audioBirds.play();
 });
 
-birds.addEventListener("complete", function (){
+birds.addEventListener("complete", function (){ // wait until the animation is finished the stop it, this is needed so it will play more then once
     birds.stop();
   });
   
-  //fish animation
+  //fish animation, same setup as the birds animation but without sound :(
   var fishContainer = document.getElementById('fish');
 
   var params = { container: fishContainer, // the dom element that will contain the animation
@@ -296,24 +291,23 @@ birds.addEventListener("complete", function (){
 
   oceanTrigger.addEventListener("click", function (){
     console.log("fish should play");
-    setTimeout( function(){
+    setTimeout( function(){ // make it wait 2s before playing the animation
       fish.play();
     // audioFish.play();
     }, 2000);
   });
 
-  ocean.addEventListener("click", function (){
-    console.log("fish should play");
+  ocean.addEventListener("click", function (){ // play fish animation when clicking the ocean
       fish.play();
     // audioFish.play();
   });
 
-  fish.addEventListener("complete", function (){
+  fish.addEventListener("complete", function (){ // wiat until fish animation is complete then stop it, this is needed so it will play again
     fish.stop();
   });
 
 
-    //evaporation animation loaded. this is called by the slide counter function above to start and stop on the relevant slides
+  //evaporation animation loaded. this is called by the slide counter function above to start and stop on the relevant slides
   var evaporationContainer = document.getElementById('evaporation');
 
   var params = { container: evaporationContainer, // the dom element that will contain the animation
@@ -324,25 +318,6 @@ birds.addEventListener("complete", function (){
               };
                 
   var evaporation = bodymovin.loadAnimation(params);
-
-
-
-
-
-// tree.addEventListener("click", function() {
-//   birdsAnim.play();
-// });
-
-// // bodymovin test
-// var container = document.getElementById('bodymovin-test');
-
-// bodymovin.loadAnimation({
-// container: container, // the dom element that will contain the animation
-// renderer: 'svg',
-// loop: true,
-// autoplay: true,
-// path: 'bodymovin/data.json' // the path to the animation json
-// });
 
 
 }); // closes the document ready function
