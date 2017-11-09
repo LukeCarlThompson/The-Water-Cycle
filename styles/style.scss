@@ -28,8 +28,6 @@ html {
 .scene {
   height: 2000px;
   width: 5000px;
-  // background: url(images/scene-wide.svg);
-  // background: linear-gradient(to bottom right, #fff1eb 0%, #ace0f9 100%);
   background: radial-gradient(farthest-side at 90% 40%, #e6fcfd 0, #c1eefc 60%, #a4badd 100%);
   position: absolute;
   z-index: -10;
@@ -370,8 +368,6 @@ html {
     background-color: $yellow;
     border-radius: 4px;
     padding: 10px;
-    // height: 400px;
-    // width: 500px;
   }
 }
 
@@ -379,25 +375,12 @@ html {
 .secondary-info-box {
   background-color: $yellow;
   position: absolute;
-  // 
   border-radius: 4px;
   width: 300px;
   right: -300px;
   padding: 20px;
   text-align: left;
   transition: transform .5s $ease;
-  &.trees-info {
-
-  }
-  &.ocean-info {
-
-  }
-  &.evaporation-info {
-
-  }
-  &.clouds-info {
-
-  }
 }
 
 //styles for the close button
@@ -439,7 +422,6 @@ html {
 }
 
 .secondary-info-trigger {
-  // transition: transform .3s $bounce;
   transform: scale(0);
   width: 200px;
   p {
@@ -866,7 +848,6 @@ html {
 }
 
 // styles for the quiz
-
 .question {
   padding: 10px 16px 16px;
   background: #eee;
