@@ -36,7 +36,8 @@ $(document).ready(function(){
     "pos-five",
     "pos-six",
     "pos-seven",
-    "pos-quiz"
+    "pos-quiz",
+    "pos-modal"
   ]
 
   counter = 0;
@@ -45,6 +46,7 @@ $(document).ready(function(){
   //declare function to progress slide forwards
   function nextSlide(){
     if ( body.hasClass("more-info")) {
+      console.log("should do nothing");
       return;
     } else {
         counterCurrent = counter;
@@ -54,9 +56,11 @@ $(document).ready(function(){
     }
     // animate the current slide indicator to next position
     if ( counter == 0) {
-      $(".progress-indicate .current").animate({ left: "38px" }, 1000);
+      $(".progress-indicate .current").animate({ left: "38px" }, 1000); // returns the slide counter back to slide 1 position
+    } else if (counter == 8) { // this stops the slide counter moving on the modal popup screen
+      return;
     } else {
-      $(".progress-indicate .current").animate({ left: "+=35px" }, 1000);
+      $(".progress-indicate .current").animate({ left: "+=35px" }, 1000); // moves the slide counter across to the next spot relative to where ti already is
     }
     // animate clouds between slide 6 and 7 then instantly return them back to their original position
     if (counter == 6) {
@@ -79,9 +83,9 @@ $(document).ready(function(){
 
   //declare function to reverse through slides
   function prevSlide(){
-    if (body.hasClass("pos-one")) {
+    if (body.hasClass("pos-one")) { // stop user from going backwards from starting slide
       return;
-    } else if ( body.hasClass("more-info")) {
+    } else if ( body.hasClass("more-info")) { // stop slide prgression on the more info screens
       return;
       } else {
       counterCurrent = counter;
@@ -102,7 +106,9 @@ $(document).ready(function(){
   // listening for keydown and executing next or prev slide fucntions if the left or right arrow keys are pressed.
   $(document).on("keydown", function(e) {
     if (e.keyCode == 39) {
-      nextSlide();
+      if (!body.hasClass("pos-quiz")) {
+        nextSlide();
+      }
     } else if (e.keyCode == 37) {
       prevSlide();
     }
@@ -187,9 +193,9 @@ $(document).ready(function(){
         width: 380, // max is 640px
         height: 280, // max is 350px
         showClose: true, // switch to 'true' for enabling close button
-        showCloseText: 'close', // type your text for close button
+        showCloseText: '', // type your text for close button
         closeByEscape: true, // enables closing popup by 'Esc'..
-        closeByDocument: false, // ..and by clicking document itself
+        closeByDocument: true, // ..and by clicking document itself
         holderClass: 'congrats', // lets you name custom class for popin holder..
         overlayClass: '', // ..and overlay block
         enableStackAnimation: false, // enables different type of popin's animation
@@ -197,8 +203,8 @@ $(document).ready(function(){
         openOnEvent: false, // set to 'false' to init on load
         setEvent: 'click', // use your event like 'mouseover', 'touchmove', etc.
         onLoad: function (elem) {  }, // set custom call before popin is inited..
-        onUnload: function () { }, // after it's closed do something
-        template: 'Congratulations you answered all the questions correctly!' // or function (elem) { ... }, or selector $('.content')
+        onUnload: function () { nextSlide();}, // after it's closed do something
+        template: '<h1>Congratulations</h1><p>You answered all the questions correctly!</p><img src="images/cool.png">' // or function (elem) { ... }, or selector $('.content')
       });
   };
 

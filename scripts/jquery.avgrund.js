@@ -98,7 +98,7 @@
                 });
 
                 if (options.showClose) {
-                    $('.avgrund-popin').append('<a href="#" class="avgrund-close">' + options.showCloseText + '</a>');
+                    $('.avgrund-popin').append('<a href="#" class="avgrund-close close-btn"><span></span><span></span>' + options.showCloseText + '</a>');
                 }
 
                 if (options.enableStackAnimation) {
