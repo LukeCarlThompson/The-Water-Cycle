@@ -70,7 +70,7 @@ html {
   height: 5%;
   width: 2%;
   border-radius: 50%;
-  background-color: $white;
+  background-color: white;
   opacity:0.9;
   position: absolute;
   left: 78%;
@@ -225,6 +225,7 @@ html {
     background-color: rgba($white, .5);
     margin-left: 25px;
     border-radius: 50%;
+    box-shadow: 1px 1px 5px $shadow;
   }
   li:nth-child(-n+2) {
     margin-left: 0;
@@ -249,10 +250,13 @@ html {
   font-family: $buttons;
   font-weight: 700;
   letter-spacing: 2px;
-  font-size: 18px;
+  font-size: 1em;
   text-transform: uppercase;
   border: 0;
   cursor: pointer;
+  p {
+    font-weight: 700;
+  }
   &.next {
     position: absolute;
     text-align: center;
@@ -299,11 +303,12 @@ html {
   animation-delay: 2s;
   p {
     transition: text-shadow .3s $ease, transform .3s $ease;
-    text-shadow: 0px 0px 0px $shadow;
+    text-shadow: 1px 1px 5px $shadow;
+    
   }
   &:hover p {
     transform: scale(1.1) translateY(-3px);
-    text-shadow: 2px 2px 5px $shadow;
+    text-shadow: 2px 2px 10px $shadow;
   }
   .more-info & {
     @include hide;
@@ -351,7 +356,7 @@ html {
 
 .main-info-box {
   max-width: 600px;
-  background-color: rgba($white, 0.25);
+  background-color: rgba($white, 0.75);
   display: inline-block;
   text-align: left;
   border-radius: 4px;
