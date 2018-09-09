@@ -662,7 +662,7 @@ html {
     transform: translateX(-19%) translateY(-8%) scale(1);
     transition: transform .8s $ease;
     transition-delay: .3s;
-     &::after {
+    &::after {
       content:"";
       background-color: rgba(42, 43, 66, 0);
     }

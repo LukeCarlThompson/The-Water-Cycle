@@ -8,6 +8,8 @@ $(document).ready(function(){
   function() { 
     $(".loading").addClass("loading-complete");
   }, false);
+
+  console.log("hello");
   
 
   //trigger the secondary info triggers to open the info slider and move position
