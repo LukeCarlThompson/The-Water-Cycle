@@ -68,11 +68,11 @@ $(document).ready(function(){
       $(".progress-indicate .current").animate({ left: "+=35px" }, 1000); // moves the slide counter across to the next spot relative to where ti already is
     }
     // animate clouds between slide 6 and 7 then instantly return them back to their original position
-    if (counter == 6) {
-      $(".clouds, .clouds-02, clouds-03").animate({ left: "-50%" }, 2000, function() {
-        $(this).animate({ left : "0"}, 1)
-      });
-    }
+    // if (counter == 6) {
+    //   $(".clouds, .clouds-02, clouds-03").animate({ left: "-50%" }, 2000, function() {
+    //     $(this).animate({ left : "0"}, 1)
+    //   });
+    // }
     if (counter == 4) {
       // start the evaporation animation
       console.log("evaporation should play");
