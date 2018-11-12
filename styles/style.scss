@@ -10,6 +10,11 @@ html {
   -webkit-font-smoothing: subpixel-antialiased; // this fixes a bug on safari where fonts render weirdly when being transformed
 }
 
+p {
+  line-height: 1.6em;
+  font-size: 20px;
+}
+
   .loading-complete {
     @include load-in;
   }
@@ -302,9 +307,13 @@ html {
   animation-delay: 2s;
   color: $white;
   p {
+    border: 2px solid $white;
+    padding: 15px 30px;
+    border-radius: 100px;
     transition: text-shadow .3s $ease, transform .3s $ease;
     text-shadow: 1px 1px 5px $shadow;
     color: $white;
+    font-size: 16px;
   }
   &:hover p {
     transform: scale(1.1) translateY(-3px);
@@ -328,6 +337,9 @@ html {
     top: 10%;
     left: 50%;
     margin-left: -160px;
+    p {
+      text-align: left;
+    }
   }
   &.second {
     top: 100px;
@@ -347,22 +359,30 @@ html {
   color: $yellow;
   text-shadow: 1px 1px 0px black;
   margin-top: 15%;
-  font-size: 46px;
+  margin-bottom: 10px;
+  font-size: 55px;
+  text-align: left;
+  span {
+    font-size: 36px;
+  }
 }
 
 .quiz-title {
   color: $yellow;
   text-shadow: 1px 1px 0px black;
+  font-size: 36px;
 }
 
 .main-info-box {
-  max-width: 600px;
-  background-color: rgba($white, 0.75);
+  max-width: 650px;
+  background-color: $white;
   display: inline-block;
   text-align: left;
   border-radius: 4px;
+  padding: 1em 1em 1.5em;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 5px 10px rgba(0, 0, 0, 0.1);
   p {
-    line-height: 1.5em;
+    line-height: 1.6em;
     margin: 1em;
   }
   .quiz & {
@@ -377,11 +397,11 @@ html {
   background-color: $yellow;
   position: absolute;
   border-radius: 4px;
-  width: 300px;
-  right: -300px;
-  padding: 20px;
+  width: 430px;
+  right: -430px;
+  padding: 30px 60px 30px;
   text-align: left;
-  transition: transform .5s $ease;
+  transition: transform 1s $ease-out-slow;
 }
 
 //styles for the close button
@@ -431,7 +451,7 @@ html {
     transition: transform .3s ease, opacity .4s ease;
     background-color: $yellow;
     border-radius: 4px;
-    padding: 10px 0;
+    padding: 10px 15px;
     top: -50px;
     &::after {
       content: "";
@@ -455,7 +475,7 @@ html {
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    box-shadow: 0px 0px 0px $shadow;
+    box-shadow: 0px 5px 20px $shadow;
     transition: transform.3s, box-shadow .3s $bounce;
     cursor: pointer;
     &::after {
@@ -592,7 +612,7 @@ html {
       animation-delay: 0;
     }
     .trees-info {
-      transform: translateX(-300px);
+      transform: translateX(-430px);
       transition-delay: .2s;
     }
     .next {
@@ -644,7 +664,7 @@ html {
       animation-delay: 0;
     }
     .ocean-info {
-      transform: translateX(-300px);
+      transform: translateX(-430px);
       transition-delay: .2s;
     }
     .next {
@@ -716,7 +736,7 @@ html {
       animation-delay: 0;
     }
     .evaporation-info {
-      transform: translateX(-300px);
+      transform: translateX(-430px);
       animation-delay: .2s;
     }
     .next {
@@ -784,7 +804,7 @@ html {
       animation-delay: 0;
     }
     .clouds-info {
-      transform: translateX(-300px);
+      transform: translateX(-430px);
       animation-delay: .2s;
     }
     .next {
