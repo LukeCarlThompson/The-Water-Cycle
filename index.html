@@ -5,7 +5,42 @@
     <title>The Water Cycle</title>
   </head>
   <body class="pos-one">
-    <div class="loading" style="display: block; background-color: #fff; position: absolute; z-index: 999; top: 0px; left: 0px; bottom: 0px; right: 0px; text-align: center; "><img src="images/splashy-spinner.gif" alt="" style="margin-top: 50vh; transform: translateY(-50%);"></div>
+    <div class="loading" >
+      <div class="spinner"></div>
+    </div>
+    <style>
+      .loading {
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 999;
+        background-color: white;
+      }
+      .spinner {
+        background-image: url('images/spinner-sprite.png');
+        background-size: cover;
+        height: 200px;
+        width: 200px;
+        margin-top: 50vh;
+        transform: translateY(-50%);
+        display: inline-block;
+        animation: spinner 1s steps(25, end) infinite
+      }
+    
+      @keyframes spinner {
+        0% {
+          background-position: 5000px;
+        }
+        100% {
+          background-position: 0px;
+        }
+      }
+    </style>
     <link href="https://fonts.googleapis.com/css?family=Nunito:600,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
     <div class="viewport">

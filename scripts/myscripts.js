@@ -7,9 +7,9 @@ $(document).ready(function(){
   window.addEventListener('load', 
   function() { 
     $(".loading").addClass("loading-complete");
+    console.log("loading complete");
   }, false);
 
-  console.log("hello");
   
 
   //trigger the secondary info triggers to open the info slider and move position
