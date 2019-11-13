@@ -37,10 +37,7 @@ gulp.task('sass', function() {
   gulp.src(sassSources)
   .pipe(sass({style: 'expanded'}))
     .on('error', gutil.log)
-    .pipe(autoprefixer({
-            browsers: ['last 3 versions'],
-            cascade: false
-        }))
+    .pipe(autoprefixer())
     .pipe(cssnano())
   .pipe(gulp.dest('docs'))
   .pipe(connect.reload())

@@ -1,4 +1,5 @@
 {
+  "browserslist": ["last 3 versions"],
   "devDependencies": {
     "gulp": "latest",
     "gulp-autoprefixer": "^7.0.1",
