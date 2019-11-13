@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The Water Cycle</title>
+  </head>
+  <body class="pos-one">
+    <div class="loading" >
+      <div class="spinner"></div>
+    </div>
+    <style>
+      .loading {
+        position: absolute;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 999;
+        background-color: white;
+      }
+      .spinner {
+        background-image: url('images/spinner-sprite.png');
+        background-size: cover;
+        height: 200px;
+        width: 200px;
+        margin-top: 50vh;
+        transform: translateY(-50%);
+        display: inline-block;
+        animation: spinner 1s steps(25, end) infinite
+      }
+    
+      @keyframes spinner {
+        0% {
+          background-position: 5000px;
+        }
+        100% {
+          background-position: 0px;
+        }
+      }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <div class="viewport">
+      <div class="progress-indicate">
+        <ul>
+          <li class="current"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="previous btn">
+        <p>Previous</p>
+      </div>
+      <div class="content-container first">
+        <h1 class="main-title"><span>The</span><br>Water Cycle</h1>
+        <!-- <div class="main-info-box">
+          <p>Lets find out where <br>the rain comes from</p>
+        </div> -->
+        <p>Lets find out where the rain comes from</p>
+      </div>
+      <div class="content-container second">
+        <div class="main-info-box">
+          <p>To find out we are going to learn about the water cycle.</p>
+          <p>When rain falls down to the ground it gathers in puddles and flows downhill.</p>
+        </div>
+      </div>
+      <div class="content-container third">
+        <div class="main-info-box">
+          <p>As the water flows downhill some of it soaks into the ground where trees use it to grow. Let's follow the flow of water further down.</p>
+        </div>
+      </div>
+      <div class="secondary-info-box trees-info">
+        <div class="close-btn"><span></span><span></span></div>
+        <p>Trees absorb water from the ground through their roots. The water travels up the tree and evaporates through the leaves. We will learn about the evaporation process a little later on.</p>
+      </div>
+      <div class="content-container fourth">
+        <div class="main-info-box">
+          <p>Flowing water eventually joins rivers and streams. These rivers and streams flow into larger bodies of water such as lakes or the ocean.</p>
+        </div>
+      </div>
+      <div class="secondary-info-box ocean-info">
+        <div class="close-btn"><span></span><span></span></div>
+        <p>The ocean is the largest body of water on earth. The water in the ocean contains lots of dissolved salt which means it's not good for humans to drink it. The fish don't mind it though. When water evaporates the salt gets left behind with any other dissolved minerals.</p>
+      </div>
+      <div class="content-container fifth">
+        <div class="main-info-box">
+          <p>When the sun shines down and warms everything up. The water starts to evaporate faster and rise up into the sky.</p>
+        </div>
+      </div>
+      <div class="secondary-info-box evaporation-info">
+        <div class="close-btn"><span></span><span></span></div>
+        <p>The process of evaporation is when liquid water turns into gas. Water is made of millions of tiny molecules of hydrogen and oxygen. Evaporation happens on the surface of the water and is when the molecules break away from each other and float into the air.</p>
+      </div>
+      <div class="content-container sixth">
+        <div class="main-info-box">
+          <p>As the water vapor rises it cools down and groups together to form tiny drops of water. This is called condensation. When lots of these little droplets of water gather together they appear as mist or clouds.</p>
+        </div>
+      </div>
+      <div class="secondary-info-box clouds-info">
+        <div class="close-btn"><span></span><span></span></div>
+        <p>The sky contains many tiny particles of water as vapor. We can only see then when they group together to form clouds or mist. The darker a cloud is the more water it is made up of. When a cloud is very dark it means there is a high chance of raining very soon.</p>
+      </div>
+      <div class="content-container seventh">
+        <div class="main-info-box">
+          <p>The air in Earths atmosphere is always moving around. This movement is called wind. Wind moves the clouds to different parts of the world. The tiny droplets of water inside clouds can join together to form larger ones. When they get large enough these droplets fall to the ground as rain and start the water cycle again.</p>
+        </div>
+      </div>
+      <div class="quiz-container quiz">
+        <h1 class="quiz-title">The Water Cycle Quiz</h1>
+        <div class="main-info-box">
+          <div class="question">
+            <p>1. What is the largest body of water?</p>
+            <label>
+              <input type="radio" name="answers[1]" value="A" data-correct>
+              The ocean
+            </label>
+            <label>
+              <input type="radio" name="answers[1]" value="B">
+              A lake
+            </label>
+            <label>
+              <input type="radio" name="answers[1]" value="C">
+              Amazon River
+              </label>
+          </div>
+          <div class="question">
+            <p>2. When water evaporates it turns into?</p>
+            <label>
+              <input type="radio" name="answers[2]" value="A">
+              Rain
+            </label>
+            <label>
+              <input type="radio" name="answers[2]" value="B" data-correct>
+              Water vapor
+            </label>
+            <label>
+              <input type="radio" name="answers[2]" value="C">
+              Condensation
+            </label>
+          </div>
+          <div class="question">
+            <p>3. Trees absorb water through their?</p>
+            <label>
+              <input type="radio" name="answers[3]" value="A">
+              Leaves
+            </label>
+            <label>
+              <input type="radio" name="answers[3]" value="B">
+              Trunk
+            </label>
+            <label>
+              <input type="radio" name="answers[3]" value="C" data-correct>
+              Roots
+            </label>
+          </div>
+          <button class="btn submit" id="quiz-submit">Submit</button>
+          <div class="score">
+            <p>Score: <span id="score-num">0</span></p>
+          </div>
+          <div class="congrats"></div>
+        </div>
+      </div>
+      <div class="next-holder">
+        <div class="btn next first">
+          <span>Next</span>
+        </div>
+        <div class="btn next second">
+          <span>Next</span>
+        </div>
+        <div class="btn next third">
+          <span>Next</span>
+        </div>
+        <div class="btn next fourth">
+          <span>Next</span>
+        </div>
+        <div class="btn next fifth">
+          <span>Next</span>
+        </div>
+        <div class="btn next sixth">
+          <span>Next</span>
+        </div>
+        <div class="btn next seventh">
+          <span>Next</span>
+        </div>
+      </div>
+      <div class="scene">
+        <audio autoplay loop class="ambience" id="ambience" src="audio/forest-rain.mp3"></audio>
+        <div class="evaporation" id="evaporation"></div>
+        <div class="clouds"></div>
+        <div class="clouds-02"></div>
+        <div class="clouds-03"></div>
+        <div class="kid" id="kid">
+          <audio id="voice1" src="audio/hi-ya.mp3" ></audio>
+          <audio id="voice2" src="audio/quick-ello.mp3" ></audio>
+          <audio id="voice3" src="audio/woo.mp3" ></audio>
+          <audio id="voice4" src="audio/whistle-for-hello.mp3" ></audio>
+          <audio id="voice5" src="audio/woo-hoo.mp3" ></audio>
+        </div>
+        <div class="sun"></div>
+        <div class="fish" id="fish"></div>
+        <div class="ocean-03 ocean"></div>
+        <div class="ocean-02 ocean"></div>
+        <div class="ocean-01 ocean" id="ocean"></div>
+        <div class="birds" id="birds"></div>
+        <audio id="birds-chirping" src="audio/birds-chirping.mp3" ></audio>
+        <div class="tree" id="tree"></div>
+        <div class="ground"></div>
+        <div class="secondary-info-trigger trees-trigger" id="trees-trigger"><p>Learn about trees</p><div class="info-icon"><svg viewBox="0 0 330 330"><path d="M165 0C74 0 0 74 0 165s74 165 165 165 165-74 165-165S256 0 165 0zm15 245c0 8.3-6.7 15-15 15s-15-6.7-15-15v-90c0-8.3 6.7-15 15-15s15 6.7 15 15v90zm-15-135c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z"/></svg></div></div>
+        <div class="secondary-info-trigger ocean-trigger" id="ocean-trigger"><p>Learn about the ocean</p><div class="info-icon"><svg viewBox="0 0 330 330"><path d="M165 0C74 0 0 74 0 165s74 165 165 165 165-74 165-165S256 0 165 0zm15 245c0 8.3-6.7 15-15 15s-15-6.7-15-15v-90c0-8.3 6.7-15 15-15s15 6.7 15 15v90zm-15-135c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z"/></svg></div></div>
+        <div class="secondary-info-trigger vapor-trigger"><p>Learn about evaporation</p><div class="info-icon"><svg viewBox="0 0 330 330"><path d="M165 0C74 0 0 74 0 165s74 165 165 165 165-74 165-165S256 0 165 0zm15 245c0 8.3-6.7 15-15 15s-15-6.7-15-15v-90c0-8.3 6.7-15 15-15s15 6.7 15 15v90zm-15-135c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z"/></svg></div></div>
+        <div class="secondary-info-trigger clouds-trigger"><p>Learn about clouds</p><div class="info-icon"><svg viewBox="0 0 330 330"><path d="M165 0C74 0 0 74 0 165s74 165 165 165 165-74 165-165S256 0 165 0zm15 245c0 8.3-6.7 15-15 15s-15-6.7-15-15v-90c0-8.3 6.7-15 15-15s15 6.7 15 15v90zm-15-135c-11 0-20-9-20-20s9-20 20-20 20 9 20 20-9 20-20 20z"/></svg></div></div>
+      </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>

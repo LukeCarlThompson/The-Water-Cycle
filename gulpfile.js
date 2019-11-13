@@ -13,10 +13,10 @@ var jsSources = ['scripts/*.js'],
     sassSources = ['styles/style.scss']
     htmlSources = ['*.html'],
     bodymovinSources = ['bodymovin/*.json'],
-    bodymovinOutput = 'production/bodymovin',
+    bodymovinOutput = 'docs/bodymovin',
     audioSources = ['audio/*'],
-    audioOutput = 'production/audio',
-    outputDir = 'production';
+    audioOutput = 'docs/audio',
+    outputDir = 'docs';
 
 
 gulp.task('log', function() {
@@ -42,7 +42,7 @@ gulp.task('sass', function() {
             cascade: false
         }))
     .pipe(cssnano())
-  .pipe(gulp.dest('production'))
+  .pipe(gulp.dest('docs'))
   .pipe(connect.reload())
 });
 
@@ -65,7 +65,7 @@ gulp.task('watch', function() {
 
 gulp.task('connect', function() {
   connect.server({
-    root: 'production',
+    root: 'docs',
     livereload: true
   })
 });
